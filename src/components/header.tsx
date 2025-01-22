@@ -1,6 +1,7 @@
 import Link from "next/link";
 import style from './header.module.css';
 import Image from "next/image";
+import SearchBar from '@/components/searchbar';
 
 export default function Header(){
     return (
@@ -19,9 +20,7 @@ export default function Header(){
                 <Link href={''}>애견동반 여행 정보</Link>
             </div> */}
             <div className={style.hd_etc_wrap}>
-                <button className={style.sch_btn}>
-                    <Image src="/images/icon/icon_search.png" alt="검색 아이콘" width={34} height={34} />
-                </button>
+                <SearchBar />
                 {/* <button className={style.weather_btn}>
                     <Image src="/images/icon/icon_weather.png" alt="날씨 아이콘" width={30} height={30} />
                 </button> */}
