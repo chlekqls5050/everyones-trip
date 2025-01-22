@@ -1,0 +1,162 @@
+.container {
+    margin-top: 180px;
+}
+.main_title_wrap > p {
+    font-size: 1.4rem;
+    letter-spacing: -1px;
+    font-weight: bold;
+    margin: 1.5rem 0;
+}
+.sub_title_wrap > p {
+    font-size: 1.2rem;
+    font-weight: bold;
+    letter-spacing: -1px;
+    margin: 1.5rem 0;
+}
+.festivites_info_wrap {
+    display: flex;
+    gap:50px;
+    margin-bottom: 70px;
+}
+.festivites_info_wrap .img_wrap {
+    width: calc((100% - 50px) / 2);
+    position:relative;
+    overflow: hidden;
+    border-radius: 20px 0 20px 0;
+}
+.festivites_info_wrap .txt_wrap {
+    width: calc((100% - 50px) / 2);
+    min-height: 350px;
+}
+.festivites_cont_wrap {
+    margin-bottom: 100px;
+}
+.festivites_map_wrap {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    background-color: #f9f9f9;
+    padding: 40px 0 100px;
+}
+.txt_wrap .title {
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin: 15px 0 30px;
+}
+.txt_wrap div > .text {
+    display: flex;
+    align-items: center;
+    /* gap: 1rem; */
+    line-height: 1.4;
+    font-size: .8rem;
+    margin: 5px 0;
+}
+.txt_wrap div > .text > a {
+    color:var(--black-color);
+    display: inline-block;
+    margin-left: 6px;
+}
+.txt_wrap div > .text:last-child {
+    margin-top: 20px;
+    line-height: 1.5;
+}
+.nix {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    margin: 0;
+    font-size: .8rem;
+}
+.festivites_suggestion_wrap .content_wrap {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    gap:20px;
+}
+.festivites_suggestion_wrap .content_wrap li {
+    width:calc((100% - 15px) / 4);
+}
+.festivites_suggestion_wrap .content_wrap .img_wrap {
+    position: relative;
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+    background: #ddd;
+}
+.festivites_suggestion_wrap .content_wrap .img_wrap > img {
+    height: auto !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%,-50%) !important;
+}
+.festivites_suggestion_wrap .content_wrap .title {
+    font-size: .9rem;
+    padding: 0;
+    margin: 10px 0 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.festivites_suggestion_wrap .content_wrap .add {
+    word-break: keep-all;
+    font-size: .75rem;
+    margin:0;
+    line-height: 1.4;
+    display: flex;
+    gap:5px;
+}
+.festivites_suggestion_wrap .content_wrap .add > img {
+    margin-top: 2px;
+}
+.festivites_suggestion_wrap .content_wrap .add > span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    line-clamp:2;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+.festivites_suggestion_wrap .content_wrap .tel {
+    font-size: .8rem;
+    margin: 5px 0 0;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+.directions_wrap {
+    display: flex;
+    gap:50px;
+}
+.directions_wrap > .directions_map_wrap {
+    flex: 1;
+}
+.directions_wrap > .directions_txt_wrap {
+    width: 30%;
+    padding: 0;
+    margin: 2.25rem 0;
+}
+.directions_wrap .icon_wrap {
+    width: 25px;
+    height: 25px;
+    display: block;
+    position: relative;
+}
+.directions_txt_wrap li {
+    margin-bottom: 30px;
+}
+.directions_txt_wrap .title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 15px;
+    font-size: 1rem;
+    font-weight: bold;
+}
+.directions_txt_wrap .text {
+    word-break: keep-all;
+    margin: 0;
+    font-size: .8rem;
+}

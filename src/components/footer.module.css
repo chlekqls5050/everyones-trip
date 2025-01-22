@@ -1,0 +1,64 @@
+.footer {
+    background-color: #eee;
+    margin-top: 150px;
+}
+.ft_top_wrap {
+    padding: 50px 0;
+    display: flex;
+    align-items: center;
+}
+.ft_logo_wrap {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #191919;
+    text-decoration: none;
+    display: inline-block;
+    width: 25%;
+}
+.ft_logo_wrap > div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.ft_logo_wrap span {
+    white-space: nowrap;
+}
+.ft_bt_wrap {
+    padding: 15px 0;
+    border-top: 1px solid #ccc;
+}
+.copyright > p {
+    margin: 0;
+    font-size: .7rem;
+    text-align: center;
+    color: #333;
+}
+.ft_info_wrap ul {
+    padding: 0;
+    list-style: none;
+    margin: 0;
+}
+.ft_info_wrap ul > li {
+    margin: 20px 0;
+    display: flex;
+}
+.ft_info_wrap p {
+    margin: 0;
+    color:#222;
+}
+.ft_info_wrap p.title {
+    font-weight: bold;
+    font-size: .85rem;
+    width: 90px;
+}
+.ft_info_wrap p.text {
+    font-size: .75rem;
+}
+.ft_info_wrap {
+    flex:1;
+}
+
+
+.ft_fix_wr {position: fixed; bottom: 5%; right: 40px; z-index: 9; filter: invert(100%);}
+.ft_fix_wr > .top_btn {display:block; background: transparent; width: 50px; height: 50px; border: 2px solid #f9f9f9; border-radius: 50%; position:relative;}
+/* .ft_fix_wr .top_btn > img {width:18px;} */

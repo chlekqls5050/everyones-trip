@@ -1,0 +1,124 @@
+.festivities_wrap {
+  display: flex;
+  gap: 1rem;
+}
+.main_contents_wrap {
+  margin-bottom: 150px;
+}
+.main_banner_wrap {
+  width:100vw;
+  margin-left: calc(-50vw + 50%);
+  position: relative;
+}
+.main_banner_wrap .bg {
+  background: url('/images/main_banner_img.jpg') no-repeat center / cover;
+  background-attachment: fixed;
+  height: 70vh;
+}
+.main_banner_wrap::after {
+  content: "";
+  position:absolute;
+  top:0;
+  left: 0;
+  width: 100%;
+  height:100%;
+  background-color: rgba(0,0,0,.4);
+}
+.banner_txt_wrap {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 90%;
+  z-index: 1;
+  text-align: center;
+  color: #f9f9f9;
+}
+.banner_txt_wrap .title {
+  font-size: 2.8rem;
+  font-weight: 500;
+  font-family: "Cormorant", serif;
+  margin: 0;
+}
+.banner_txt_wrap .txt {
+  font-size: 1rem;
+  margin-top: 0;
+}
+.lodgment_wrap {
+  display: flex;
+  gap:20px;
+}
+.first_item_wrap {
+  width:30%;
+}
+.other_items_wrap {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap:20px;
+}
+.other_items_wrap > div {
+  width:calc((100% - 40px) / 3);
+  height: 250px;
+  position: relative;
+}
+.first_item_wrap > div {
+  height: 100%;
+  position: relative;
+}
+
+.main_title_wrap {
+  display: flex;
+  margin: 0 0 30px;
+  align-items: center;
+  justify-content: space-between;
+}
+.main_title_wrap > h3 {
+  margin: 0;
+}
+
+.main_title_wrap > a {
+  color:var(--black-color);
+  font-size: .8rem;
+  line-height: 1;
+}
+
+.btn_wrap {
+  display: block;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+  font-weight: 700;
+  font-size: .75rem;
+  background-color: var(--black-color);
+  margin: 50px auto 0;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.20);
+  max-width: 200px;
+}
+.btn_wrap a {
+  display: block;
+  position: relative; 
+  z-index: 1;
+  color: var(--white-color);
+  width:100%;
+  padding: 15px 60px;
+  text-align: center;
+  box-sizing: border-box;
+}
+.btn_wrap:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 490%;
+  width: 140%;
+  background: #A7C7E7;
+  -webkit-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
+  -webkit-transform: translateX(-98%) translateY(-25%) rotate(45deg);
+  transform: translateX(-98%) translateY(-25%) rotate(45deg);
+}
+.btn_wrap:hover:after {
+  -webkit-transform: translateX(-9%) translateY(-25%) rotate(45deg);
+  transform: translateX(-9%) translateY(-25%) rotate(45deg);
+}
