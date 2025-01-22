@@ -44,7 +44,7 @@ async function LodgmentContent() {
   return (
     <>
       <div className={style.main_title_wrap}>
-        <h3>전국의 숙박1 정보</h3>
+        <h3>전국의 숙박 정보</h3>
       </div>
       <div className={style.lodgment_wrap}>
         <div className={style.first_item_wrap}>
