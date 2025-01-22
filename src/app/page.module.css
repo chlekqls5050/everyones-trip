@@ -92,6 +92,8 @@
   transition: all 0.3s ease;
   position: relative;
   font-size: .8rem;
+  font-family: "Montserrat", serif;
+  display: inline-block;
 }
 .btn_wrap > a:hover {
   background: transparent;
