@@ -1,4 +1,5 @@
-'use client'
+'use client';
+import NotFound from '@/app/not-found';
 import style from './page.module.css';
 import ListItem from '@/components/list-item';
 import { tripData } from "@/types";
@@ -9,21 +10,24 @@ export default function Page({ params }: { params: Promise<{ id: string }>}) {
     const { id } = use(params);
 
     const [data, setData] = useState([]);
-    const [page, setPage] = useState(1);
+    const [count, setCount] = useState(12);
 
     const fetchData = async (pageNo:number) => {
-        const response = await fetch(`https://apis.data.go.kr/B551011/KorService1/areaBasedSyncList1?numOfRows=12&pageNo=${page}&MobileOS=ETC&MobileApp=trip&serviceKey=${process.env.NEXT_PUBLIC_API_KEY}&_type=json&arrange=Q&contentTypeId=${id}`, {cache : "force-cache"}); // contentId=1&
+        const response = await fetch(`https://apis.data.go.kr/B551011/KorService1/areaBasedSyncList1?numOfRows=${count}&MobileOS=ETC&MobileApp=trip&serviceKey=${process.env.NEXT_PUBLIC_API_KEY}&_type=json&arrange=Q&contentTypeId=${id}`, {cache : "force-cache"}); // contentId=1&
         const data = await response.json();
         setData(data.response.body.items.item);
         
-        if (!response.ok) {
-            console.error("API 호출 실패");
-        }
+          if(!response.ok) {
+            if(response.status === 404) {
+              NotFound();
+            }
+            return <div>오류가 발생했습니다...</div>
+          }
         
     }
     useEffect(() => {
-        fetchData(page);
-    },[page])
+        fetchData(count);
+    },[count])
 
     return (
         <div className={style.container}>
@@ -35,15 +39,8 @@ export default function Page({ params }: { params: Promise<{ id: string }>}) {
                         ))
                     }
                 </div>
-                <div className='paging'>
-                    <ul>
-                        <li>
-                            {page === 1 ? <button onClick={() => {alert('첫번째 페이지 입니다');}}>PREV</button> : <button onClick={()=> {setPage(page - 1); window.scrollTo({top:0,left:0,behavior:'smooth'});}}>PREV</button>}
-                        </li>
-                        <li>
-                            {page >= 10 ? <button onClick={() => {alert('마지막 페이지 입니다');}}>NEXT</button> : <button onClick={()=> {setPage(page + 1); window.scrollTo({top:0,left:0,behavior:'smooth'});}}>NEXT</button>}
-                        </li>
-                    </ul>
+                <div className={style.more_btn_wrap}>
+                    {count <= 60 ? <button onClick={() => {setCount(count + 12)}}>더 많은 정보 불러오기 +</button> : ""}
                 </div>
             </div> 
         </div>

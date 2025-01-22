@@ -1,4 +1,4 @@
-import { notFound } from "next/navigation";
+import NotFound from '@/app/not-found';
 import { tripData, infoItemProps, repeatItemProps } from '@/types';
 import style from "./page.module.css";
 import Image from "next/image";
@@ -12,7 +12,7 @@ async function TripDetail({TripId} :{TripId:string}) {
 
   if(!response.ok) {
     if(response.status === 404) {
-      notFound();
+      NotFound();
     }
     return <div>오류가 발생했습니다...</div>
   }
@@ -137,7 +137,7 @@ async function RecommendPlace({areaCode, sigunguCode} : {areaCode :string; sigun
   const response = await fetch(`https://apis.data.go.kr/B551011/KorService1/areaBasedList1?numOfRows=4&MobileOS=ETC&MobileApp=festivites&_type=json&areaCode=${areaCode}&sigunguCode=${sigunguCode}&arrange=R&serviceKey=${process.env.NEXT_PUBLIC_API_KEY}`, {cache : "force-cache"}); // &contentTypeId=39
   if(!response.ok) {
     if(response.status === 404) {
-      notFound();
+      NotFound();
     }
     return <div>오류가 발생했습니다...</div>
   }
