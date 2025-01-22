@@ -34,7 +34,7 @@ export default function Page({ params }: { params: Promise<{ id: string }>}) {
         <div className={style.container}>
             <div className={style.banner_wrap}>
                 <div className={style.banner_img_wrap}>
-                    <Image src={`/images/sub_banner_${id}.jpg`} fill alt={'배너 이미지지'} />
+                    <Image src={`/images/sub_banner_${id}.jpg`} fill alt={'배너 이미지'} />
                 </div>
                 <div className={style.banner_txt_wrap}>
                     <p className={style.title}>
@@ -51,7 +51,7 @@ export default function Page({ params }: { params: Promise<{ id: string }>}) {
                     }
                 </div>
                 <div className={style.more_btn_wrap}>
-                    {count <= 60 ? <button onClick={() => {setCount(count + 12)}}>더 많은 정보 불러오기 +</button> : ""}
+                    {count <= 60 ? <button onClick={() => {setCount(count + 12)}}><span>더 많은 정보 불러오기 +</span></button> : ""}
                 </div>
             </div> 
         </div>

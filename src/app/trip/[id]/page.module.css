@@ -23,6 +23,11 @@
     position:relative;
     overflow: hidden;
     border-radius: 20px 0 20px 0;
+    background-color: #eee;
+}
+.festivites_info_wrap .img_wrap > img {
+    width:auto !important;
+    margin: 0 auto;
 }
 .festivites_info_wrap .txt_wrap {
     width: calc((100% - 50px) / 2);

@@ -18,7 +18,7 @@ export default function ListItem({
                 <Image src={firstimage} fill alt={`${title} 이미지`}/>
             </div>
             <div className={style.info_box}>
-            <p className={style.title}>{title}</p>  
+            <p className={style.title} title={title}>{title}</p>  
             <p className={style.addr}>{addr1}</p>
             </div>
         </Link>
