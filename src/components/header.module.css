@@ -6,11 +6,12 @@
     height: 80px;
     /* line-height: 80px; */
     z-index: 999;
-    box-shadow: 10px 10px 10px rgba(180,180,180,.1);
+    box-shadow: 10px 10px 10px rgba(180,180,180,.15);
+    background-color: #fff;
     
-    backdrop-filter: saturate(180%) blur(20px);
+    /* backdrop-filter: saturate(180%) blur(20px);
     background-image: linear-gradient(180deg, rgba(255, 255, 255, .1), rgba(255, 255, 255, .1));
-    transition: background-color 0.4s;
+    transition: background-color 0.4s; */
 }
 .common_header > .w-1200 {
     height: 100%;
@@ -31,22 +32,6 @@
 }
 .hd_logo_wrap span {
     white-space: nowrap;
-}
-.hd_etc_wrap {
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    display: flex;
-    gap: 10px;
-}
-.hd_etc_wrap button {
-    background-color: transparent;
-    border: none;
-    padding: 0;
-    line-height: 1;
-    cursor: pointer;
-    display: block;
 }
 .hd_menu_wrap {
     position: absolute;

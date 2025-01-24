@@ -13,19 +13,6 @@ export default function Page({ params }: { params: Promise<{ id: string }>}) {
     const [data, setData] = useState([]);
     const [count, setCount] = useState(12);
 
-    // const fetchData = async (_countNum:number) => {
-    //     const response = await fetch(`https://apis.data.go.kr/B551011/KorService1/areaBasedSyncList1?numOfRows=${count}&MobileOS=ETC&MobileApp=trip&serviceKey=${process.env.NEXT_PUBLIC_API_KEY}&_type=json&arrange=Q&contentTypeId=${id}`, {cache : "force-cache"});
-    //     const data = await response.json();
-    //     setData(data.response.body.items.item);
-
-    //     if(!response.ok) {
-    //     if(response.status === 404) {
-    //         NotFound();
-    //     }
-    //     return <div>오류가 발생했습니다...</div>
-    //     }
-    // }
-
     const fetchData = useCallback(async (count:number) => {
         const response = await fetch(`https://apis.data.go.kr/B551011/KorService1/areaBasedSyncList1?numOfRows=${count}&MobileOS=ETC&MobileApp=trip&serviceKey=${process.env.NEXT_PUBLIC_API_KEY}&_type=json&arrange=Q&contentTypeId=${id}`, { cache: "force-cache" });
         const data = await response.json();

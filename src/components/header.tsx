@@ -19,12 +19,10 @@ export default function Header(){
                 <Link href={''}>숙박 정보</Link>
                 <Link href={''}>애견동반 여행 정보</Link>
             </div> */}
-            <div className={style.hd_etc_wrap}>
-                <SearchBar />
+            <SearchBar />
                 {/* <button className={style.weather_btn}>
                     <Image src="/images/icon/icon_weather.png" alt="날씨 아이콘" width={30} height={30} />
                 </button> */}
-            </div>
           </div>
         </header>
     )
