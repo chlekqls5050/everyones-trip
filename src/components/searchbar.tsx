@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import style from './searchbar.module.css';
 import Image from 'next/image';
 import { useRouter, useSearchParams } from 'next/navigation';
@@ -13,9 +13,9 @@ export default function SearchBar() {
     const searchParams = useSearchParams(); 
     const q = searchParams.get("q");
 
-    useEffect(() => {
-        setSearch(q || "");
-    }, [q]);
+    // useEffect(() => {
+    //     setSearch(q || "");
+    // }, [q]);
 
     const searchBarToggle = () => {
         if (searchBarRef.current) {
@@ -28,8 +28,6 @@ export default function SearchBar() {
             searchBarRef.current.style.display = isHidden ? 'none' : 'block';
             setIsHidden(!isHidden);
         }
-
-        console.log('실행')
     }
 
     const onChangeInput = (e:React.ChangeEvent<HTMLInputElement>) => {
@@ -38,11 +36,15 @@ export default function SearchBar() {
     const onClickButton = () => {
         if (!search || q === search) return;
         router.push(`/search?q=${search}`);
+        setSearch("");
         searchBgClose();
     }
+    
+   
     const onKeyDown = (e:React.KeyboardEvent<HTMLInputElement>) => {
         if(e.key === "Enter") {
             onClickButton();
+            // setSearch("");
         }
     }
     
