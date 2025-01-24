@@ -1,0 +1,35 @@
+
+.more_btn_wrap {
+    margin-top: 80px;
+    text-align: center;
+}
+.more_btn_wrap > button {
+    background-color: transparent;
+    border: 1px solid var(--black-color);
+    padding: 15px 60px;
+    font-size: .7rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all .4s;
+    position: relative;
+}
+.more_btn_wrap > button::after {
+    content:"";
+    position: absolute;
+    width: 0;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: var(--black-color);
+    transition: all .4s;
+}
+.more_btn_wrap > button > span {
+    position: relative;
+    z-index: 1;
+}
+.more_btn_wrap > button:hover::after {
+    width: 100%;
+}
+.more_btn_wrap > button:hover {
+    color: var(--white-color);
+}

@@ -5,13 +5,13 @@ import ListItem from '@/components/list-item';
 import { tripData } from "@/types";
 import { useEffect, useState, use, useCallback } from 'react';
 import Image from "next/image";
+import MoreBtn from '@/components/morebtn';
 
 
 export default function Page({ params }: { params: Promise<{ id: string }>}) {
     const { id } = use(params);
-
+    const [count, setCount] = useState<number>(12);
     const [data, setData] = useState([]);
-    const [count, setCount] = useState(12);
 
     const fetchData = useCallback(async (count:number) => {
         const response = await fetch(`https://apis.data.go.kr/B551011/KorService1/areaBasedSyncList1?numOfRows=${count}&MobileOS=ETC&MobileApp=trip&serviceKey=${process.env.NEXT_PUBLIC_API_KEY}&_type=json&arrange=Q&contentTypeId=${id}`, { cache: "force-cache" });
@@ -27,6 +27,7 @@ export default function Page({ params }: { params: Promise<{ id: string }>}) {
     useEffect(() => {
         fetchData(count);
     },[count, fetchData])
+
 
     return (
         <div className={style.container}>
@@ -48,9 +49,7 @@ export default function Page({ params }: { params: Promise<{ id: string }>}) {
                         ))
                     }
                 </div>
-                <div className={style.more_btn_wrap}>
-                    {count <= 60 ? <button onClick={() => {setCount(count + 12)}}><span>더 많은 정보 불러오기 +</span></button> : ""}
-                </div>
+                <MoreBtn count={count} setCount={setCount} />
             </div> 
         </div>
     )
