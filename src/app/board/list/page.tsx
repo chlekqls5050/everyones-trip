@@ -8,7 +8,7 @@ const BoardList = () => {
 
     useEffect(() => {
     const fetchPosts = async () => {
-        const { data, error } = await supabase.from('posts').select('*');
+        const { data, error } = await supabase.from('board').select('*');//.eq('type', 'notice')
         if (error) {
         console.error(error);
         } else {
@@ -31,9 +31,5 @@ const BoardList = () => {
         </div>
     );
 };
-
-
-
-
 
 export default BoardList;

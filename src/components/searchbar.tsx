@@ -7,6 +7,7 @@ import { useRouter, useSearchParams } from 'next/navigation';
 
 export default function SearchBar() {
     const searchBarRef = useRef<HTMLDivElement | null>(null);
+    const searchInputRef = useRef<HTMLInputElement | null>(null);
     const [isHidden, setIsHidden] = useState(false);
     const [search, setSearch] = useState("");
     const router = useRouter();
@@ -18,8 +19,9 @@ export default function SearchBar() {
     // }, [q]);
 
     const searchBarToggle = () => {
-        if (searchBarRef.current) {
+        if (searchBarRef.current && searchInputRef.current) {
             searchBarRef.current.style.display = isHidden ? 'none' : 'block';
+            searchInputRef.current.focus();
             setIsHidden(!isHidden);
         }
     };
@@ -40,11 +42,9 @@ export default function SearchBar() {
         searchBgClose();
     }
     
-   
     const onKeyDown = (e:React.KeyboardEvent<HTMLInputElement>) => {
         if(e.key === "Enter") {
             onClickButton();
-            // setSearch("");
         }
     }
     
@@ -63,7 +63,7 @@ export default function SearchBar() {
                 <div className={style.sch_input_box}>
                     <div className='w-1200'>
                         <div className={style.flex_box}>
-                            <input type='text' value={search} onChange={onChangeInput} onKeyDown={onKeyDown}/>
+                            <input ref={searchInputRef} type='text' value={search} onChange={onChangeInput} onKeyDown={onKeyDown}/>
                             <button onClick={onClickButton}>Search</button>
                         </div>
                     </div>

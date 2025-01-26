@@ -21,6 +21,7 @@ export type infoItemProps = tripData & {
     eventenddate?:string;
     playtime?:string;
     usetimefestival?:string;
+    treatmenu?:string;
 };
 export interface repeatItemProps {
     infotext?: string;

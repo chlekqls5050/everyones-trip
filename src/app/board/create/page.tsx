@@ -16,12 +16,13 @@ const CreatePost = () => {
 
 
 
-    const { data, error } = await supabase.from('posts').insert([{ title, content, author, creation_date: new Date() }]);
+    const { data, error } = await supabase.from('board').insert([{ title, content, author, creation_date: new Date() }]);
+    
 
     if (error) {
       setError('게시글 작성에 실패했습니다.');
     } else {
-      router.push('/board/list');  // 게시글 작성 후 목록 페이지로 리다이렉트
+      router.push('/board/list');
     }
   };
 

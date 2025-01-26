@@ -33,6 +33,7 @@ async function TripDetail({TripId} :{TripId:string}) {
   const homePage = filterItem.homepage;
 
 
+
   // 상세소개 쉬는날, 개장기간 등 내역을 조회 api
   const addInfoData = await fetch(`https://apis.data.go.kr/B551011/KorService1/detailIntro1?MobileOS=ETC&MobileApp=festivites&_type=json&contentId=${contentid}&contentTypeId=${contentType}&serviceKey=${process.env.NEXT_PUBLIC_API_KEY}`, {cache : "force-cache"});
   const addInfoDataJson = await addInfoData.json();
@@ -41,6 +42,7 @@ async function TripDetail({TripId} :{TripId:string}) {
   const eventEndDate = tripDate2.eventenddate;
   const playTime = tripDate2.playtime;
   const useTimeFestival = tripDate2.usetimefestival;
+  const treatMenu = tripDate2.treatmenu;
 
 
   // 반복정보조회 / 관광정보 상세내역관련 api
@@ -74,44 +76,20 @@ async function TripDetail({TripId} :{TripId:string}) {
               {item.firstimage ? (
                 <Image src={item.firstimage} alt={item.title} fill />
               ) : (
-                  <p>No image available</p>
+                  <p className={style.empty}>{item.title} 이미지</p>
               )}
             </div>
             <div className={style.txt_wrap}>
               <p className={style.title}>{item.title}</p>
-              {item.contenttypeid === "15" ? (
-                <div>
-                  <p className={style.text}>
-                    구분 : {name}
-                  </p>
-                  <p className={style.text}>
-                    축제 기간 : {eventStartDate} ~ {eventEndDate}
-                  </p>
-                  <p className={style.text}>
-                    축제 시간 : {playTime?.replace(/<br>/gi, "\n")}
-                  </p>
-                  <p className={style.text}>
-                    이용 요금 : {useTimeFestival?.replace(/<br>/gi, "\n")}
-                  </p>
-                  <p className={style.text}>
-                    {infoText?.replace(/<br>/gi, "\n")}
-                  </p>
-                </div>
-              ) : item.contenttypeid === "32" ? (
-                <div>
-                  <p className={style.text}>
-                  </p>
-                  <p className={style.text}>
-                    구분 : {name}
-                  </p>
-                  <p className={style.text}>
-                    홈페이지 바로가기 : {parse((homePage as string))}
-                  </p>
-                </div>
-              ) : (
-                <div></div>
-              )}
-              
+              <div>
+                {name ? <p className={style.text}>구분 : {name}</p> : <></>}
+                {eventStartDate && eventEndDate ? <p className={style.text}>축제 기간 : {eventStartDate} ~ {eventEndDate}</p> : <></>}
+                {playTime ? <p className={style.text}>축제 시간 : {playTime?.replace(/<br>/gi, "\n")}</p> : <></>}
+                {useTimeFestival ? <p className={style.text}>이용 요금 : {useTimeFestival?.replace(/<br>/gi, "\n")}</p> : <></>}
+                {treatMenu ? <p className={style.text}>메뉴 : {treatMenu}</p> : <></>}
+                {homePage ? <p className={style.text}>홈페이지 바로가기 : {parse((homePage as string))}</p> : <></>}
+                {infoText ? <p className={style.text}>{infoText?.replace(/<br>/gi, "\n")}</p> : <></>}
+              </div>
             </div>
           </div>
           <div className={`${style.festivites_map_wrap} ${style.festivites_cont_wrap}`}>

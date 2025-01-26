@@ -1,0 +1,33 @@
+.container {
+    margin-top: 180px;
+}
+.list_wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.5rem 1rem;
+    margin-top: 20px;
+    padding-top: 40px;
+}
+.existing {
+    border-top: 1px solid #eee;
+}
+.search_title_wrap {
+    margin-bottom: 50px;
+}
+.search_title_wrap > h3 {
+    font-size: 2rem;
+    text-align: center;
+    font-weight: 900;
+    margin: 0;
+}
+.search_total_wrap > p {
+    margin: 0;
+    font-size: .8rem;
+}
+.search_total_wrap span {
+    letter-spacing: -2px;
+}
+.empty {
+    width: 100%;
+    text-align: center;
+}

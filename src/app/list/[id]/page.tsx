@@ -24,6 +24,7 @@ export default function Page({ params }: { params: Promise<{ id: string }>}) {
             }
         }
     }, [count, id]); 
+    
     useEffect(() => {
         fetchData(count);
     },[count, fetchData])

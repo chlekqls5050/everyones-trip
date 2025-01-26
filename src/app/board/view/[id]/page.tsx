@@ -12,7 +12,7 @@ const ViewPost = ({ params }: { params: Promise<{ id: string }> }) => {
     const fetchPost = async () => {
       if (!id) return;
 
-      const { data, error } = await supabase.from('posts').select('*').eq('id', id).single();
+      const { data, error } = await supabase.from('board').select('*').eq('id', id).single();
 
       if (error) {
         setError('게시글을 가져오는 데 실패했습니다.');
