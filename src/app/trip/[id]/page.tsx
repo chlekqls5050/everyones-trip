@@ -5,6 +5,7 @@ import Image from "next/image";
 import KakaoMap from "@/components/use-kakao-loader";
 import parse from 'html-react-parser';
 import { use } from "react";
+import Link from 'next/link';
 
 
 async function TripDetail({TripId} :{TripId:string}) {
@@ -112,7 +113,7 @@ async function TripDetail({TripId} :{TripId:string}) {
   );
 }
 async function RecommendPlace({areaCode, sigunguCode} : {areaCode :string; sigunguCode:string}) {
-  const response = await fetch(`https://apis.data.go.kr/B551011/KorService1/areaBasedList1?numOfRows=4&MobileOS=ETC&MobileApp=festivites&_type=json&areaCode=${areaCode}&sigunguCode=${sigunguCode}&arrange=R&serviceKey=${process.env.NEXT_PUBLIC_API_KEY}`, {cache : "force-cache"}); // &contentTypeId=39
+  const response = await fetch(`https://apis.data.go.kr/B551011/KorService1/areaBasedList1?numOfRows=4&MobileOS=ETC&MobileApp=festivites&_type=json&areaCode=${areaCode}&sigunguCode=${sigunguCode}&arrange=R&serviceKey=${process.env.NEXT_PUBLIC_API_KEY}`, {cache : "force-cache"});
   if(!response.ok) {
     if(response.status === 404) {
       NotFound();
@@ -132,24 +133,26 @@ async function RecommendPlace({areaCode, sigunguCode} : {areaCode :string; sigun
           {
             tripDate.map((item) => (
               <li key={item.contentid}>
-                <div className={style.img_wrap}>
-                  {item.firstimage ? (
-                    <Image src={item.firstimage} alt={item.title} fill />
-                  ) : (
-                    <p className={style.nix}>{item.title} 이미지 입니다.</p>
-                  )}
-                </div>
-                <p className={style.title} title={item.title}>{item.title}</p>
-                <p className={style.add} title={`${item.addr1}${item.addr2}`}>
-                  <Image src={'/images/icon/icon_location.png'} alt='주소 아이콘' width={15} height={15} />
-                  <span>{item.addr1}{item.addr2}</span>
-                </p> 
-                {item.tel? (
-                  <p className={style.tel}>
-                    <Image src={'/images/icon/icon_phone.png'} alt='전화번호 아이콘' width={15} height={15} />
-                    {item.tel}
-                  </p>
-                ):('')}
+                <Link href={`/trip/${item.contentid}`}>
+                  <div className={style.img_wrap}>
+                    {item.firstimage ? (
+                      <Image src={item.firstimage} alt={item.title} fill />
+                    ) : (
+                      <p className={style.nix}>{item.title} 이미지 입니다.</p>
+                    )}
+                  </div>
+                  <p className={style.title} title={item.title}>{item.title}</p>
+                  <p className={style.add} title={`${item.addr1}${item.addr2}`}>
+                    <Image src={'/images/icon/icon_location.png'} alt='주소 아이콘' width={15} height={15} />
+                    <span>{item.addr1}{item.addr2}</span>
+                  </p> 
+                  {item.tel? (
+                    <p className={style.tel}>
+                      <Image src={'/images/icon/icon_phone.png'} alt='전화번호 아이콘' width={15} height={15} />
+                      {item.tel}
+                    </p>
+                  ):('')}
+                </Link>
               </li>
             ))
           }
@@ -173,19 +176,21 @@ async function StayPlace({areaCode, sigunguCode}:{areaCode:string; sigunguCode:s
           {
             stayDate.map((item) => (
               <li key={item.contentid}>
-                <div className={style.img_wrap}>
-                  {item.firstimage ? (
-                    <Image src={item.firstimage} alt={item.title} fill />
-                  ) : (
-                    <p className={style.nix}>{item.title} 이미지 입니다.</p>
-                  )}
-                </div>
-                <p className={style.title} title={item.title}>{item.title}</p>
-                <p className={style.add} title={`${item.addr1}${item.addr2}`}>
-                  <Image src={'/images/icon/icon_location.png'} alt='주소 아이콘' width={15} height={15} />
-                  <span>{item.addr1}{item.addr2}</span>
-                </p> 
-                {item.tel? (<p className={style.tel}><Image src={'/images/icon/icon_phone.png'} alt='전화번호 아이콘' width={15} height={15} /> {item.tel}</p>):('')}
+                <Link href={`/trip/${item.contentid}`}>
+                  <div className={style.img_wrap}>
+                    {item.firstimage ? (
+                      <Image src={item.firstimage} alt={item.title} fill />
+                    ) : (
+                      <p className={style.nix}>{item.title} 이미지 입니다.</p>
+                    )}
+                  </div>
+                  <p className={style.title} title={item.title}>{item.title}</p>
+                  <p className={style.add} title={`${item.addr1}${item.addr2}`}>
+                    <Image src={'/images/icon/icon_location.png'} alt='주소 아이콘' width={15} height={15} />
+                    <span>{item.addr1}{item.addr2}</span>
+                  </p> 
+                  {item.tel? (<p className={style.tel}><Image src={'/images/icon/icon_phone.png'} alt='전화번호 아이콘' width={15} height={15} /> {item.tel}</p>):('')}
+                  </Link>
               </li>
             ))
           }

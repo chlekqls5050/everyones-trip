@@ -4,6 +4,7 @@
   --white-color: #f9f9f9;
   --black-color: #222;
   --main-color: #A7C7E7;
+  --sub-color: #2581dc;  
 }
 
 html {
@@ -30,6 +31,12 @@ li {
 }
 a {
   text-decoration: none;
+  color:var(--black-color);
+}
+button {
+  background-color: transparent;
+    border: 0;
+    padding: 0;
 }
 main {
     margin-top: 80px;

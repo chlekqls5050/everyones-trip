@@ -1,0 +1,67 @@
+.board_title_wrap {
+    text-align: center;
+    padding: 100px 0;
+}
+.board_title_wrap h2 {
+    margin: 0;
+    font-size: 2rem;
+    font-family: 'Montserrat';
+}
+
+.board_list_wrap {
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+.board_list_wrap > p {
+    padding: 20px;
+    margin: 0;
+    text-align: center;
+}
+.board_list_wrap > ul {
+    padding: 0;
+    margin: 0;
+}
+.board_list_wrap > ul > li {
+    border-bottom: 1px solid #ccc;
+}
+.board_list_wrap > ul > li:last-child {
+    border-bottom: none;
+}
+.board_list_wrap > ul > li > a {
+    padding: 20px;
+    display: block;
+    font-size: .9rem;
+}
+
+
+.board_totla_wrap > p {
+    margin-top: 0;
+    font-size: .75rem;
+}
+.board_totla_wrap > p > span {
+    color: var(--sub-color);
+}
+.create_btn_wrap {
+    text-align: right;
+    margin-top: 30px;
+}
+.create_btn_wrap > a {
+    font-size: .75rem;
+    padding: 10px 20px;
+    background-color: var(--black-color);
+    color: var(--white-color);
+}
+.pagination_wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 70px;
+}
+.pagination_wrap > button {
+    vertical-align: middle;
+}
+.pagination_wrap > span {
+    font-size: .75rem;
+    line-height: 1;
+}

@@ -4,7 +4,8 @@
     top: 50%;
     transform: translateY(-50%);
     display: flex;
-    gap: 10px;
+    gap: 20px;
+    align-items: center;
 }
 .hd_etc_wrap button {
     background-color: transparent;
@@ -61,4 +62,69 @@
     font-weight: 500;
     font-family: 'Montserrat', serif;
     cursor: pointer;
+}
+.ham_btn_wrap {
+    display: none;
+    cursor: pointer;
+}
+.ham_btn_wrap > span {
+    display: block;
+    background-color: var(--black-color);
+    width: 25px;
+    height: 2px;
+}
+.ham_btn_wrap > span:nth-child(2) {
+    margin: 6px 0;
+}
+.ham_wrap {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.ham_bg {
+    background-color: rgba(0,0,0,.5);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+.ham_contents_box {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 90%;
+    max-width: 450px;
+    background-color: #fff;
+    height: 100%;
+}
+.ham_hd_wrap {
+    height: 80px;
+    line-height: 80px;
+    border-bottom: 1px solid #eee;
+    padding: 0 30px;
+    text-align: right;
+}
+.ham_menu_wrap {
+    height: calc(100% - 80px);
+    padding: 30px;
+    box-sizing: border-box;
+}
+.ham_hd_wrap .close_btn {
+    vertical-align: middle;
+    cursor: pointer;
+}
+.Depth_1 {
+    padding: 0;
+    margin: 0;
+}
+.Depth_1_title {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 20px 0;
+}
+.Depth_2 {
+    display: none;
 }

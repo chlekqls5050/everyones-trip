@@ -1,0 +1,13 @@
+.board_cont .inbox {
+    display: flex;
+}
+.board_cont .inbox > p {
+    margin: 0;
+}
+.board_cont .title {
+    flex:1;
+}
+.board_cont .inbox > p:not(.title) {
+    color: #aaa;
+    font-size: .8rem;
+}

@@ -1,14 +1,14 @@
 import Link from "next/link";
+import style from './board-item.module.css';
 
 interface boardData {
     id:number;
     title:string;
-    content:string;
     creation_date:string;
     author:string;
 }
 
-export default function BoardItem({id, title, content, creation_date, author}:boardData) {
+export default function BoardItem({id, title, creation_date, author}:boardData) {
     
   const date = new Date(creation_date);
   
@@ -18,12 +18,12 @@ export default function BoardItem({id, title, content, creation_date, author}:bo
   
   const dataF= `${year}.${month}.${day}`;
 
-    console.log(creation_date);
     return (
-        <Link href={`/board/view/${id}`}>
-            {title} |
-            {content} | {author}
-            {dataF}
+        <Link href={`/board/view/${id}`} className={style.board_cont}>
+            <div className={style.inbox}>
+                <p className={style.title}>{title}</p>
+                <p>{author} | {dataF}</p>
+            </div>
         </Link>
     )
 }
