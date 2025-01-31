@@ -1,8 +1,10 @@
 'use client';
 import { useState, useEffect, use } from 'react';
 import { supabase } from '@/lib/supabase';
+import Link from 'next/link';
+import style from './page.module.css'
 
-const ViewPost = ({ params }: { params: Promise<{ id: string }> }) => {
+export default function Page ({ params }: { params: Promise<{ id: string }> }) {
   const { id } = use(params);
   const [post, setPost] = useState<any>(null);
   const [error, setError] = useState<string | null>(null);
@@ -30,17 +32,39 @@ const ViewPost = ({ params }: { params: Promise<{ id: string }> }) => {
   }
 
   if (!post) {
-    return <div>Loading...</div>;
+    return (
+      <div className={style.container}>
+        <div className='w-1200'>
+          <div>Loading...</div>
+        </div>
+      </div>
+    );
   }
 
   return (
-    <div>
-      <h1>{post.title}</h1>
-      <p>{post.content}</p>
-      <p>작성자 : {post.author}</p>
-      <small>작성일: {post.creation_date}</small>
+    <div className={style.container}>
+      <div className='w-1200'>
+        <div className={style.creation_hd_wrap}>
+          <div className={style.creation_title_wrap}>
+            <span>{post.type}</span>
+            <h2>{post.title}</h2>
+          </div>
+          <div className={style.creation_info_wrap}>
+            <p>작성자 : {post.author}</p>
+            <p>작성일: {post.creation_date}</p>
+          </div>
+        </div>
+        <div className={style.creation_cont_wrap}>
+          <p>{post.content}</p>
+        </div>
+        <div className={style.creation_btn_wrap}>
+          <Link href={`/board/list/${post.type}`}>
+            <span>목록</span>
+          </Link>
+        </div>
+      </div>
     </div>
   );
 };
 
-export default ViewPost;
+

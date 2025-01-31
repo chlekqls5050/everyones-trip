@@ -1,8 +1,8 @@
 "use client";
 import { supabase } from '@/lib/supabase';
 import { useEffect, useState, use } from 'react';
-import BoardItem from '../../components/board-item';
-import style from '../../page.module.css';
+import BoardItem from '@/app/board/components/board-item';
+import style from './page.module.css';
 import Link from 'next/link';
 
 export default function Page({ params }: { params: Promise<{ id: string }> }) {
