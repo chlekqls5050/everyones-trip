@@ -1,0 +1,12 @@
+.board_list_wrap {
+    padding: 0;
+    margin: 0;
+}
+.board_list_wrap > li {
+    padding: 20px;
+    border-bottom: 1px solid #ccc;
+}
+
+.board_list_wrap > li a div p {
+    font-size: .8rem;
+}

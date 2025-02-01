@@ -22,7 +22,7 @@ export default function BoardItem({id, title, creation_date, author}:boardData) 
         <Link href={`/board/view/${id}`} className={style.board_cont}>
             <div className={style.inbox}>
                 <p className={style.title}>{title}</p>
-                <p>{author} | {dataF}</p>
+                <p className={style.author}>{author} | {dataF}</p>
             </div>
         </Link>
     )

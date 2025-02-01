@@ -1,9 +1,12 @@
+
 import style from "./page.module.css";
 import { tripData } from "@/types";
 import Visual from "@/components/visual";
 import FestivitiesItem from "@/components/festivities-item";
 import LodgmentItem from "@/components/lodgment-item";
 import Link from "next/link";
+import { supabase } from '@/lib/supabase';
+import MainBoardItem from "@/components/main-board-item";
 
 async function FestivitiesContent(){
   const response = await fetch(`https://apis.data.go.kr/B551011/KorService1/searchFestival1?numOfRows=4&MobileOS=ETC&MobileApp=festivites&_type=json&arrange=Q&eventStartDate=20250115&serviceKey=${process.env.NEXT_PUBLIC_API_KEY}`, {cache : "force-cache"});
@@ -63,7 +66,17 @@ async function LodgmentContent() {
   );
 }
 
-export default function Home() {
+
+export default async function Home() {
+
+  const { data: qaPosts, error: qaError } = await supabase.from('board').select('*').eq('type', 'qa').limit(5);
+  const { data: noticePosts, error: noticeError } = await supabase.from('board').select('*').eq('type', 'notice').limit(5);
+
+  if (qaError || noticeError) {
+    console.error('데이터 가져오기 오류', qaError, noticeError);
+    return <div>데이터 가져오는 데 문제가 발생했습니다.</div>;
+  }
+
   return (
     <div className={style.container}>
       <Visual />
@@ -82,6 +95,19 @@ export default function Home() {
         </div>
         <div className={style.main_contents_wrap}>
           <LodgmentContent />
+        </div>
+        <div className={style.main_board_wrap}>
+          <div className={style.main_title_wrap}>
+            <h3>공지사항</h3>
+          </div>
+          <div className={style.board_cont_wrap}>
+            <div>
+              <MainBoardItem posts={qaPosts || []} />
+            </div>
+            <div>
+              <MainBoardItem posts={noticePosts || []} />
+            </div>
+          </div>
         </div>
       </div>
     </div>

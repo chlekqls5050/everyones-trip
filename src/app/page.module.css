@@ -76,6 +76,7 @@
 }
 .main_title_wrap > h3 {
   margin: 0;
+  font-size: 1.25rem;
 }
 .main_title_wrap > a {
   color:var(--black-color);
@@ -125,4 +126,15 @@
 .btn_wrap > a:hover:after {
   width: 100%;
   transition: .5s ease all;
+}
+
+
+
+/* 게시판 영역 */
+.board_cont_wrap {
+  display: flex;
+  gap: 100px;
+}
+.board_cont_wrap > div {
+  width: calc((100% - 50px) / 2);
 }

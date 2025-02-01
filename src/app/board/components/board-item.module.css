@@ -1,13 +1,17 @@
 .board_cont .inbox {
     display: flex;
+    gap: 30px;
 }
 .board_cont .inbox > p {
     margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 .board_cont .title {
     flex:1;
 }
-.board_cont .inbox > p:not(.title) {
+.board_cont .inbox > .author {
     color: #aaa;
     font-size: .8rem;
 }
