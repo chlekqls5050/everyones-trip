@@ -2,7 +2,7 @@
 import ListItem from '@/components/list-item';
 import style from './page.module.css';
 import type { tripData } from "@/types";
-import { useState, useEffect, use, Suspense } from 'react';
+import { useState, useEffect, use } from 'react';
 import MoreBtn from '@/components/morebtn';
 
 export default function Page({ searchParams }: { searchParams: Promise<{ q: string }>}) {
@@ -36,7 +36,6 @@ export default function Page({ searchParams }: { searchParams: Promise<{ q: stri
                 <div className={style.search_title_wrap}>
                     <h3>&quot;{q}&quot; 검색결과</h3>
                 </div>
-                <Suspense fallback={<div>Loading search results...</div>}>
                 {searchItem.length > 0 ? (
                     <>
                     <div className={style.search_total_wrap}>
@@ -53,7 +52,6 @@ export default function Page({ searchParams }: { searchParams: Promise<{ q: stri
                         </div>
                     </>
                 )}
-                </Suspense>
                 <MoreBtn count={count} setCount={setCount} total={total}/>
             </div>
         </div>

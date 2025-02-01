@@ -34,5 +34,6 @@ export type Post = {
     author: string;
     creation_date: string;
     type: string;
+    password:string;
 };
   

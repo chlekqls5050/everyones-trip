@@ -80,15 +80,20 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
                 <div className={style.create_btn_wrap}>
                     <Link href={id === 'notice' ? '/board/create/notice' : '/board/create/qa'}>글 쓰기</Link>
                 </div>
-                <div className={style.pagination_wrap}>
-                    <button onClick={() => handlePageChange(currentPage - 1)} disabled={currentPage === 1}>
-                        &lt;
-                    </button>
-                    <span>{currentPage} / {totalPages}</span>
-                    <button onClick={() => handlePageChange(currentPage + 1)} disabled={currentPage === totalPages}>
-                        &gt;
-                    </button>
-                </div>
+                {posts.length > 0 ? (
+                    <div className={style.pagination_wrap}>
+                        <button onClick={() => handlePageChange(currentPage - 1)} disabled={currentPage === 1}>
+                            &lt;
+                        </button>
+                        <span>{currentPage} / {totalPages}</span>
+                        <button onClick={() => handlePageChange(currentPage + 1)} disabled={currentPage === totalPages}>
+                            &gt;
+                        </button>
+                    </div>
+                    ) : (
+                    <></>
+                )}
+                
             </div>
         </div>
     );

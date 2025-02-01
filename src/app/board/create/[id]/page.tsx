@@ -1,5 +1,4 @@
 'use client';
-
 import { useState, use, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
@@ -11,6 +10,7 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [author, setAuthor] = useState('');
+  const [password, setPassword] = useState('');
   const [type, setType] = useState<string | undefined>('');
   const [error, setError] = useState<string | null>(null);
 
@@ -23,7 +23,7 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    const { error } = await supabase.from('board').insert([{ title, content, author, creation_date: new Date(), type }]);
+    const { error } = await supabase.from('board').insert([{ title, content, author, creation_date: new Date(), type, password }]);
     
     if (error) {
       setError('게시글 작성에 실패했습니다.');
@@ -63,6 +63,14 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
             <textarea
               value={content}
               onChange={(e) => setContent(e.target.value)}
+              required
+            />
+          </div>
+          <div className={style.form_input}>
+            <label>비밀번호</label>
+            <input type='password'
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               required
             />
           </div>
