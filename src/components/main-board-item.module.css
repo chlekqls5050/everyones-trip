@@ -4,9 +4,32 @@
 }
 .board_list_wrap > li {
     padding: 20px;
+    padding-left: 65px;
     border-bottom: 1px solid #ccc;
+    position: relative;
 }
-
 .board_list_wrap > li a div p {
     font-size: .8rem;
+}
+.board_list_wrap > li::after {
+    content: "";
+    position: absolute;
+    top:50%; left: 0;
+    transform: translateY(-50%);
+    width: 50px;
+    height: calc(100% - 40px);
+    background-color: var(--main-color);
+    font-size: .7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+    color: var(--white-color);
+}
+.board_list_wrap > .notice::after {
+    content: "notice";
+}
+.board_list_wrap > .qa::after {
+    content: "qa";
+    background-color: var(--sub-color);
 }

@@ -67,13 +67,13 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
       </div>
     );
   }
-
+  // const listItemClass = post.type === 'notice' ? style.notice : style.qa;
   return (
     <div className={style.container}>
       <div className="w-1200">
         <div className={style.creation_hd_wrap}>
           <div className={style.creation_title_wrap}>
-            <span>{post.type}</span>
+            <span className={post.type === 'notice' ? style.notice : style.qa}>{post.type}</span>
             <h2>{post.title}</h2>
           </div>
           <div className={style.creation_info_wrap}>
@@ -85,19 +85,16 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
           <p>{post.content}</p>
         </div>
         <div className={style.password_input_wrap}>
-          <label htmlFor="password">비밀번호</label>
           <input
             type="password"
-            id="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             placeholder="비밀번호를 입력하세요"
           />
+
+          <button onClick={handleDelete} className={style.delete_btn}>삭제</button>
         </div>
         <div className={style.creation_btn_wrap}>
-          <button onClick={handleDelete} className={style.delete_btn}>
-            삭제
-          </button>
           <Link href={`/board/list/${post.type}`}>
             <span>목록</span>
           </Link>

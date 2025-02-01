@@ -10,11 +10,14 @@ interface MainBoardItemProps {
 export default function MainBoardItem({ posts }: MainBoardItemProps) {
   return (
     <ul className={style.board_list_wrap}>
-      {posts.map((post) => (
-        <li key={post.id}>
-          <BoardItem {...post} />
-        </li>
-      ))}
+      {posts.map((post) => {
+        const listItemClass = post.type === 'notice' ? style.notice : style.qa;
+        return (
+          <li key={post.id} className={listItemClass}>
+            <BoardItem {...post}/>
+          </li>
+        );
+      })}
     </ul>
   );
 }

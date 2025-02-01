@@ -102,10 +102,10 @@ export default async function Home() {
           </div>
           <div className={style.board_cont_wrap}>
             <div>
-              <MainBoardItem posts={qaPosts || []} />
+              <MainBoardItem posts={noticePosts || []} />
             </div>
             <div>
-              <MainBoardItem posts={noticePosts || []} />
+              <MainBoardItem posts={qaPosts || []} />
             </div>
           </div>
         </div>
