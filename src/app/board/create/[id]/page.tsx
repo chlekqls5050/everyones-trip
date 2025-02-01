@@ -11,21 +11,20 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [author, setAuthor] = useState('');
-  const [error, setError] = useState<string | null>(null);
   const [type, setType] = useState<string | undefined>('');
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     if (id) {
       setType(id);
     }
-  }, []);
+  }, [id]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    const { data, error } = await supabase.from('board').insert([{ title, content, author, creation_date: new Date(), type }]);
+    const { error } = await supabase.from('board').insert([{ title, content, author, creation_date: new Date(), type }]);
     
-
     if (error) {
       setError('게시글 작성에 실패했습니다.');
     } else {
@@ -36,8 +35,12 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
   return (
     <div className={style.container}>
       <div className='w-1200'>
-        <form onSubmit={handleSubmit}>
-          <div>
+        <div className={style.title_wrap}>
+          <h3>{id}</h3>
+        </div>
+        <form onSubmit={handleSubmit} className={style.form_wrap}>
+          <input type="text" value={type} readOnly hidden />
+          <div className={style.form_input}>
             <label>작성자</label>
             <input
               type="text"
@@ -46,8 +49,7 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
               required
             />
           </div>
-          <input type="text" value={type} readOnly />
-          <div>
+          <div className={style.form_input}>
             <label>제목</label>
             <input
               type="text"
@@ -56,7 +58,7 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
               required
             />
           </div>
-          <div>
+          <div className={style.form_input}>
             <label>내용</label>
             <textarea
               value={content}
@@ -64,7 +66,9 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
               required
             />
           </div>
-          <button type="submit">작성하기</button>
+          <div className={style.submit_btn_wrap}>
+            <button type="submit">작성하기</button>
+          </div>
         </form>
         {error && <p>{error}</p>}
       </div>

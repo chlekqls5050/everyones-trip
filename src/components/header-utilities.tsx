@@ -13,7 +13,7 @@ export default function SearchBar() {
     const [search, setSearch] = useState("");
     const router = useRouter();
     const searchParams = useSearchParams(); 
-    const q = searchParams.get("q");
+    const q = searchParams?.get("q") || "";
 
     // useEffect(() => {
     //     setSearch(q || "");

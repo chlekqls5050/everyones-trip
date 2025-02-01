@@ -4,10 +4,11 @@ import { useEffect, useState, use } from 'react';
 import BoardItem from '@/app/board/components/board-item';
 import style from './page.module.css';
 import Link from 'next/link';
+import { Post } from '@/types';
 
 export default function Page({ params }: { params: Promise<{ id: string }> }) {
     const {id} = use(params);
-    const [posts, setPosts] = useState<any[]>([]);
+    const [posts, setPosts] = useState<Post[]>([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPosts, setTotalPosts] = useState<null | number>(0);
     const postsPerPage = 10;

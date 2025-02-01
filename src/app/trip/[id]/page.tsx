@@ -1,4 +1,4 @@
-import NotFound from '@/app/not-found';
+// import NotFound from '@/app/404';
 import { tripData, infoItemProps, repeatItemProps } from '@/types';
 import style from "./page.module.css";
 import Image from "next/image";
@@ -12,9 +12,9 @@ async function TripDetail({TripId} :{TripId:string}) {
   const response = await fetch(`https://apis.data.go.kr/B551011/KorService1/detailCommon1?MobileOS=ETC&MobileApp=festivites&_type=json&contentId=${TripId}&defaultYN=Y&firstImageYN=Y&mapinfoYN=Y&addrinfoYN=Y&areacodeYN=Y&catcodeYN=Y&serviceKey=${process.env.NEXT_PUBLIC_API_KEY}`, {cache : "force-cache"})
 
   if(!response.ok) {
-    if(response.status === 404) {
-      NotFound();
-    }
+    // if(response.status === 404) {
+    //   NotFound();
+    // }
     return <div>오류가 발생했습니다...</div>
   }
   const data = await response.json();
@@ -115,9 +115,9 @@ async function TripDetail({TripId} :{TripId:string}) {
 async function RecommendPlace({areaCode, sigunguCode} : {areaCode :string; sigunguCode:string}) {
   const response = await fetch(`https://apis.data.go.kr/B551011/KorService1/areaBasedList1?numOfRows=4&MobileOS=ETC&MobileApp=festivites&_type=json&areaCode=${areaCode}&sigunguCode=${sigunguCode}&arrange=R&serviceKey=${process.env.NEXT_PUBLIC_API_KEY}`, {cache : "force-cache"});
   if(!response.ok) {
-    if(response.status === 404) {
-      NotFound();
-    }
+    // if(response.status === 404) {
+    //   NotFound();
+    // }
     return <div>오류가 발생했습니다...</div>
   }
   const data = await response.json();

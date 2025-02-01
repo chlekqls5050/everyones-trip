@@ -26,3 +26,13 @@ export type infoItemProps = tripData & {
 export interface repeatItemProps {
     infotext?: string;
 };
+
+export type Post = {
+    id: number;
+    title: string;
+    content: string;
+    author: string;
+    creation_date: string;
+    type: string;
+};
+  

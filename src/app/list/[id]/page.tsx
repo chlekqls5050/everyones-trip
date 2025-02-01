@@ -1,5 +1,5 @@
 'use client';
-import NotFound from '@/app/not-found';
+// import NotFound from '@/app/404';
 import style from './page.module.css';
 import ListItem from '@/components/list-item';
 import { tripData } from "@/types";
@@ -19,11 +19,13 @@ export default function Page({ params }: { params: Promise<{ id: string }>}) {
         setData(data.response.body.items.item);
         
         if (!response.ok) {
-            if (response.status === 404) {
-            NotFound();
-            }
+            // if (response.status === 404) {
+            // NotFound();
+            // }
+
+            return <div>오류가 발생했습니다...</div>
         }
-    }, [count, id]); 
+    }, [id]); 
     
     useEffect(() => {
         fetchData(count);

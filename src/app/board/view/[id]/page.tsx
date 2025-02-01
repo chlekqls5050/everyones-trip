@@ -2,11 +2,12 @@
 import { useState, useEffect, use } from 'react';
 import { supabase } from '@/lib/supabase';
 import Link from 'next/link';
-import style from './page.module.css'
+import style from './page.module.css';
+import { Post } from '@/types';
 
 export default function Page ({ params }: { params: Promise<{ id: string }> }) {
   const { id } = use(params);
-  const [post, setPost] = useState<any>(null);
+  const [post, setPost] = useState<Post | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
