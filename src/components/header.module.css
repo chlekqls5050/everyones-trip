@@ -15,14 +15,20 @@
 .common_header > .w-1200 {
     height: 100%;
 }
+.header_wrap {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    justify-content: space-between;
+}
 .hd_logo_wrap {
     font-size: 1rem;
     font-weight: bold;
     color: #191919;
     text-decoration: none;
-    position: absolute;
+    /* position: absolute;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateY(-50%); */
 }
 .hd_logo_wrap div {
     display: flex;
@@ -33,9 +39,26 @@
     white-space: nowrap;
 }
 .hd_menu_wrap {
-    position: absolute;
+    /* position: absolute;
     top:50%;
     left: 50%;
     transform: translate(-50%,-50%);
-    line-height: 1;
+    line-height: 1; */
+}
+.hd_menu_wrap > ul {
+    display: flex;
+    gap: 30px;
+    padding-left: 0;
+    font-family: "Montserrat", serif;
+    font-size: .9rem;
+    margin: 0;
+}
+.hd_right_wrap {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    /* position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%); */
 }
