@@ -7,10 +7,6 @@
     z-index: 999;
     box-shadow: 10px 10px 10px rgba(180,180,180,.15);
     background-color: #fff;
-    
-    /* backdrop-filter: saturate(180%) blur(20px);
-    background-image: linear-gradient(180deg, rgba(255, 255, 255, .1), rgba(255, 255, 255, .1));
-    transition: background-color 0.4s; */
 }
 .common_header > .w-1200 {
     height: 100%;
@@ -26,9 +22,6 @@
     font-weight: bold;
     color: #191919;
     text-decoration: none;
-    /* position: absolute;
-    top: 50%;
-    transform: translateY(-50%); */
 }
 .hd_logo_wrap div {
     display: flex;
@@ -38,13 +31,6 @@
 .hd_logo_wrap span {
     white-space: nowrap;
 }
-.hd_menu_wrap {
-    /* position: absolute;
-    top:50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    line-height: 1; */
-}
 .hd_menu_wrap > ul {
     display: flex;
     gap: 30px;
@@ -53,12 +39,36 @@
     font-size: .9rem;
     margin: 0;
 }
+.hd_menu_wrap > ul > li {
+    position: relative;
+}
+.hd_menu_wrap > ul > li > a {
+    position: relative;
+    transition: all .3s;
+}
+.hd_menu_wrap > ul > li::before {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 7px;
+    background-color: var(--main-color);
+    bottom: 0;
+    left: 0;
+    opacity: .8;
+    transition: width .2s;
+}
 .hd_right_wrap {
     display: flex;
     gap: 40px;
     align-items: center;
-    /* position: absolute;
-    top: 50%;
-    right: 0;
-    transform: translateY(-50%); */
+}
+
+@media (hover: hover) {
+    .hd_menu_wrap > ul > li:hover::before {
+        width: 100%;
+    }
+    
+    .hd_menu_wrap > ul > li > a:hover {
+        font-weight: 500;
+    }
 }

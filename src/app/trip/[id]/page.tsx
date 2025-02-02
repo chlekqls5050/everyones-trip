@@ -19,8 +19,11 @@ async function TripDetail({TripId} :{TripId:string}) {
   }
   const data = await response.json();
   const tripDate:tripData[] = data.response.body.items.item;
-  const filteredItems = tripDate.filter((item) => item.contentid === TripId);
-  if (filteredItems.length === 0) {
+  const filteredItems = tripDate?.filter((item) => item.contentid === TripId);
+
+  console.log(data);
+
+  if (!filteredItems || filteredItems.length === 0) {
     return <div>해당 축제 정보를 찾을 수 없습니다.</div>;
   }
   const filterItem = filteredItems[0];

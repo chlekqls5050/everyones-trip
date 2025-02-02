@@ -6,6 +6,7 @@ import { tripData } from "@/types";
 import { useEffect, useState, use, useCallback } from 'react';
 import Image from "next/image";
 import MoreBtn from '@/components/morebtn';
+import Link from 'next/link';
 
 
 export default function Page({ params }: { params: Promise<{ id: string }>}) {
@@ -40,8 +41,44 @@ export default function Page({ params }: { params: Promise<{ id: string }>}) {
                 </div>
                 <div className={style.banner_txt_wrap}>
                     <p className={style.title}>
-                        {id === "32" ? "STAY" : "FESTIVTIES"}
+                        {id === "12" ? "Spot" : id === "14" ? "cultural facilities" : id === "15" ? "festival" : id === "25" ? "Travel course" : id === "28" ? "leisure sports" : id === "32" ? "Stay" : id === "38" ? "shopping" : id === "39" ? "eating house" : "ALL"}
                     </p>
+                </div>
+            </div>
+            <div className={style.sub_nav_wrap}>
+                <div>
+                    <Link href={'/'}>홈</Link>
+                    <div>
+                        <p>
+                            {id === "12" ? "Spot" : id === "14" ? "cultural facilities" : id === "15" ? "festival" : id === "25" ? "Travel course" : id === "28" ? "leisure sports" : id === "32" ? "Stay" : id === "38" ? "shopping" : id === "39" ? "eating house" : "ALL"}
+                        </p>
+                        <ul>
+                            <li>
+                                <Link href={'/list/12'}>spot</Link>
+                            </li>
+                            <li>
+                                <Link href={'/list/14'}>cultural facilities</Link>
+                            </li>
+                            <li>
+                                <Link href={'/list/15'}>festival</Link>
+                            </li>
+                            <li>
+                                <Link href={'/list/25'}>Travel course</Link>
+                            </li>
+                            <li>
+                                <Link href={'/list/28'}>leisure sports</Link>
+                            </li>
+                            <li>
+                                <Link href={'/list/32'}>Stay</Link>
+                            </li>
+                            <li>
+                                <Link href={'/list/38'}>shopping</Link>
+                            </li>
+                            <li>
+                                <Link href={'/list/39'}>eating house</Link>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
             <div className='w-1200'>
