@@ -25,6 +25,7 @@ body {
 button, a {cursor:url('/images/icon/camera_on.png') 10 10, auto;} */
 textarea, input, *::placeholder {
   font-family: 'NanumSquare';
+  outline: none;
 }
 li {
   list-style: none;

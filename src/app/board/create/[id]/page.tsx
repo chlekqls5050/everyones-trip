@@ -39,43 +39,72 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
           <h3>{id}</h3>
         </div>
         <form onSubmit={handleSubmit} className={style.form_wrap}>
-          <input type="text" value={type} readOnly hidden />
-          <div className={style.form_input}>
-            <label>작성자</label>
-            <input
-              type="text"
-              value={author}
-              onChange={(e) => setAuthor(e.target.value)}
-              required
-            />
-          </div>
-          <div className={style.form_input}>
-            <label>제목</label>
-            <input
-              type="text"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-              required
-            />
-          </div>
-          <div className={style.form_input}>
-            <label>내용</label>
-            <textarea
-              value={content}
-              onChange={(e) => setContent(e.target.value)}
-              required
-            />
-          </div>
-          <div className={style.form_input}>
-            <label>비밀번호</label>
-            <input type='password'
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
+          <div className={style.form_input_wrap}>
+            <input type="text" value={type} readOnly hidden />
+            <div className={`${style.form_input} ${style.half_wrap}`}>
+              <div>
+                <label htmlFor='author'>작성자</label>
+                <span className={style.input_ani}>
+                  <input
+                    id='author'
+                    type="text"
+                    value={author}
+                    tabIndex={1}
+                    onChange={(e) => setAuthor(e.target.value)}
+                    placeholder="작성자를 입력하세요."
+                    required
+                  />
+                  <span className={style.under_ani}></span>
+                </span>
+              </div>
+              <div>
+                <label htmlFor='pw'>비밀번호</label>
+                <span className={style.input_ani}>
+                  <input
+                    id='pw'
+                    type='password'
+                    value={password}
+                    tabIndex={2}
+                    onChange={(e) => setPassword(e.target.value)}
+                    placeholder="비밀번호를 입력하세요."
+                    required
+                  />
+                  <span className={style.under_ani}></span>
+                </span>
+              </div>
+            </div>
+            <div className={style.form_input}>
+              <label htmlFor='title'>제목</label>
+              <span className={style.input_ani}>
+                <input
+                  id='title'
+                  type="text"
+                  value={title}
+                  tabIndex={3}
+                  onChange={(e) => setTitle(e.target.value)}
+                  placeholder="제목을 입력하세요."
+                  required
+                />
+                <span className={style.under_ani}></span>
+              </span>
+            </div>
+            <div className={style.form_input}>
+              <label htmlFor='content'>내용</label>
+              <span className={style.input_ani}>
+                <textarea
+                  id='content'
+                  value={content}
+                  tabIndex={4}
+                  onChange={(e) => setContent(e.target.value)}
+                  placeholder="내용을 입력하세요."
+                  required
+                />
+                <span className={style.under_ani}></span>
+              </span>
+            </div>
           </div>
           <div className={style.submit_btn_wrap}>
-            <button type="submit">작성하기</button>
+            <button type="submit" tabIndex={5}><span>작성하기</span></button>
           </div>
         </form>
         {error && <p>{error}</p>}

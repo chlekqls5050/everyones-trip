@@ -1,3 +1,111 @@
-.container {
-    padding-top: 100px;
+.title_wrap {
+    text-align: center;
+    padding: 100px 0;
+}
+.title_wrap h3 {
+    text-transform: capitalize;
+    margin: 0;
+    font-size: 2rem;
+    font-family: 'Montserrat';
+}
+.form_input_wrap {
+    /* border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    padding: 30px 50px; */
+    padding: 0 50px;
+}
+.form_input_wrap > div {
+    padding: 20px 0;
+}
+.form_input {
+    display: flex;
+    align-items: center;
+}
+.form_input label {
+    font-size: .8rem;
+    width: 100px;
+    display: inline-block;
+    position: relative;
+}
+.half_wrap {
+    gap: 60px;
+}
+.half_wrap > div {
+    width:50%;
+    display: flex;
+    align-items: center;
+}
+.form_input .input_ani {
+    flex: 1;
+    position: relative;
+    border-bottom: 1px solid #ddd;
+    display: inline-grid;
+}
+.form_input input,
+.form_input textarea {
+    width: 100%;
+    border: 0;
+    padding: 15px 20px;
+    font-size: .7rem;
+    box-sizing: border-box;
+}
+.under_ani {
+    display: inline-block;
+    width: 100%;
+    position: relative;
+}
+.under_ani::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 1px;
+    left: 0;
+    top:0;
+    background-color: var(--sub-color);
+    transition: width .5s;
+}
+.form_input input:focus + .under_ani::after,
+.form_input textarea:focus + .under_ani::after {
+    width: 100%;
+}
+.form_input textarea {
+    resize: none;
+    min-height: 200px;
+}
+.submit_btn_wrap {
+    margin-top: 50px;
+    text-align: center;
+}
+.submit_btn_wrap > button {
+    position: relative;
+    display: inline-block;
+    padding: 13px 50px;
+    border: 1px solid var(--black-color);
+    cursor: pointer;
+}
+.submit_btn_wrap button > span {
+    position: relative;
+    z-index: 1;
+    transition: all .3s;
+    font-size: .7rem;
+}
+.submit_btn_wrap button::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 100%;
+    background-color: var(--black-color);
+    color: var(--black-color);
+    top: 0;
+    left: 0;
+    transition: all .3s;
+}
+
+@media (hover: hover) {
+    .submit_btn_wrap button:hover span {
+        color: var(--white-color);
+    }
+    .submit_btn_wrap button:hover::after {
+        width: 100%;
+    }
 }
