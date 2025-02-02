@@ -27,9 +27,13 @@
     position: relative;
     z-index: 1;
 }
-.more_btn_wrap > button:hover::after {
-    width: 100%;
-}
-.more_btn_wrap > button:hover {
-    color: var(--white-color);
+
+
+@media (hover: hover) {
+    .more_btn_wrap > button:hover::after {
+        width: 100%;
+    }
+    .more_btn_wrap > button:hover {
+        color: var(--white-color);
+    }
 }

@@ -101,12 +101,14 @@ export default async function Home() {
             <div>
               <div className={style.main_title_wrap}>
                 <h3>공지사항</h3>
+                <Link href={'/board/list/notice'}>View More +</Link>
               </div>
               <MainBoardItem posts={noticePosts || []} />
             </div>
             <div>
               <div className={style.main_title_wrap}>
                 <h3>이벤트</h3>
+                <Link href={'/board/list/event'}>View More +</Link>
               </div>
               <MainBoardItem posts={eventPosts || []} />
             </div>

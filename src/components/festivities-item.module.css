@@ -31,9 +31,6 @@
     opacity: 0;
     transition: opacity .3s;
 }
-.content_box:hover::after {
-    opacity: 1;
-}
 .info_box {
     position: absolute;
     top: 50%;
@@ -44,9 +41,6 @@
     text-align: center;
     opacity: 0;
     transition: opacity .3s;
-}
-.content_box:hover .info_box {
-    opacity: 1;
 }
 
 .info_box .title {
@@ -83,9 +77,20 @@
     transition: all .3s;
     z-index: -1;
 }
-.info_box a:hover {
-    color: var(--black-color);
-}
-.info_box a:hover::before {
-    width: 100%;
+
+
+
+@media (hover: hover) {
+    .content_box:hover::after {
+        opacity: 1;
+    }
+    .content_box:hover .info_box {
+        opacity: 1;
+    }
+    .info_box a:hover {
+        color: var(--black-color);
+    }
+    .info_box a:hover::before {
+        width: 100%;
+    }
 }
