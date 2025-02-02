@@ -16,8 +16,8 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
     useEffect(() => {
         const fetchPosts = async () => {
             let boardCategory = 'notice';
-            if(id == 'qa') {
-                boardCategory = 'qa';
+            if(id == 'event') {
+                boardCategory = 'event';
             };
 
             const { count, error: countError } = await supabase.from('board').select('*', { count: 'exact' }).eq('type', boardCategory);
@@ -58,7 +58,7 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
             <div className='w-1200'>
                 <div className={style.board_title_wrap}>
                     <h2>
-                        {id === 'notice' ? 'Notice' : 'Qa'}
+                        {id === 'notice' ? 'Notice' : 'Event'}
                     </h2>
                 </div>
                 <div className={style.board_totla_wrap}>
@@ -78,7 +78,7 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
                     )}
                 </div>
                 <div className={style.create_btn_wrap}>
-                    <Link href={id === 'notice' ? '/board/create/notice' : '/board/create/qa'}>글 쓰기</Link>
+                    <Link href={id === 'notice' ? '/board/create/notice' : '/board/create/event'}>글 쓰기</Link>
                 </div>
                 {posts.length > 0 ? (
                     <div className={style.pagination_wrap}>

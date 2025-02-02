@@ -29,7 +29,7 @@
 .board_list_wrap > .notice::after {
     content: "notice";
 }
-.board_list_wrap > .qa::after {
-    content: "qa";
+.board_list_wrap > .event::after {
+    content: "event";
     background-color: var(--sub-color);
 }

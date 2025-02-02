@@ -67,13 +67,12 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
       </div>
     );
   }
-  // const listItemClass = post.type === 'notice' ? style.notice : style.qa;
   return (
     <div className={style.container}>
       <div className="w-1200">
         <div className={style.creation_hd_wrap}>
           <div className={style.creation_title_wrap}>
-            <span className={post.type === 'notice' ? style.notice : style.qa}>{post.type}</span>
+            <span className={post.type === 'notice' ? style.notice : style.event}>{post.type}</span>
             <h2>{post.title}</h2>
           </div>
           <div className={style.creation_info_wrap}>

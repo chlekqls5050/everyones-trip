@@ -69,11 +69,11 @@ async function LodgmentContent() {
 
 export default async function Home() {
 
-  const { data: qaPosts, error: qaError } = await supabase.from('board').select('*').eq('type', 'qa').limit(5);
+  const { data: eventPosts, error: eventError } = await supabase.from('board').select('*').eq('type', 'event').limit(5);
   const { data: noticePosts, error: noticeError } = await supabase.from('board').select('*').eq('type', 'notice').limit(5);
 
-  if (qaError || noticeError) {
-    console.error('데이터 가져오기 오류', qaError, noticeError);
+  if (eventError || noticeError) {
+    console.error('데이터 가져오기 오류', eventError, noticeError);
     return <div>데이터 가져오는 데 문제가 발생했습니다.</div>;
   }
 
@@ -97,15 +97,18 @@ export default async function Home() {
           <LodgmentContent />
         </div>
         <div className={style.main_board_wrap}>
-          <div className={style.main_title_wrap}>
-            <h3>공지사항</h3>
-          </div>
           <div className={style.board_cont_wrap}>
             <div>
+              <div className={style.main_title_wrap}>
+                <h3>공지사항</h3>
+              </div>
               <MainBoardItem posts={noticePosts || []} />
             </div>
             <div>
-              <MainBoardItem posts={qaPosts || []} />
+              <div className={style.main_title_wrap}>
+                <h3>이벤트</h3>
+              </div>
+              <MainBoardItem posts={eventPosts || []} />
             </div>
           </div>
         </div>
