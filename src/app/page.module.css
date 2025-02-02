@@ -83,6 +83,23 @@
   font-size: .75rem;
   line-height: 1;
   font-family: 'Montserrat';
+  position: relative;
+}
+.main_title_wrap > a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 1px;
+  background-color: var(--black-color);
+  left: 0;
+  bottom: -5px;
+  transition: all .2s;
+}
+.main_title_wrap > a .plus_sign {
+  transform: rotate(0deg);
+  transition: all .3s;
+  display: inline-block;
+  font-size: .8rem;
 }
 .btn_wrap {
   text-align: center;
@@ -129,6 +146,8 @@
   width: calc((100% - 50px) / 2);
 }
 
+
+
 @media (hover: hover) {
   .btn_wrap > a:hover:before,
   .btn_wrap > a:hover:after {
@@ -138,5 +157,12 @@
   .btn_wrap > a:hover {
     background: transparent;
     color: var(--main-color);
+  }
+  .main_title_wrap > a:hover .plus_sign {
+    transform: rotate(90deg);
+  }
+  
+  .main_title_wrap > a:hover::after {
+    width: 100%;
   }
 }

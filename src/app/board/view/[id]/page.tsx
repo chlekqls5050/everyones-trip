@@ -55,7 +55,13 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
   };
 
   if (error) {
-    return <div>{error}</div>;
+    return (
+      <div className={style.container}>
+        <div className="w-1200">
+          <div>{error}</div>
+        </div>
+      </div>
+    );
   }
 
   if (!post) {
