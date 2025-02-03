@@ -30,7 +30,9 @@ export default function Footer(){
                         <div className={style.ft_logo_wrap}>
                             <div>
                                 <span>모두의 여행</span>
-                                <Image src={'/images/icon/icon_logo_map.png'} alt='로고 아이콘' width={30} height={30} />
+                                <div className={style.icon_wrap}>
+                                    <Image src={'/images/icon/icon_logo_map.png'} alt='로고 아이콘' fill />
+                                </div>
                             </div>
                         </div>
                         <div className={style.ft_info_wrap}>
@@ -57,17 +59,17 @@ export default function Footer(){
                             <ul>
                                 <li>
                                     <Link href={'https://github.com/chlekqls5050/dabeen'} target='_blank'>
-                                        <Image src={'/images/icon/icon_github.png'} alt={'github'} width={25} height={25} />
+                                        <Image src={'/images/icon/icon_github.png'} alt={'github'} fill />
                                     </Link>
                                 </li>
                                 <li>
                                     <Link href={'https://www.instagram.com/'} target='_blank'>
-                                        <Image src={'/images/icon/icon_instagram.png'} alt={'instagram'} width={25} height={25} />
+                                        <Image src={'/images/icon/icon_instagram.png'} alt={'instagram'} fill />
                                     </Link>
                                 </li>
                                 <li>
                                     <Link href={'https://www.facebook.com/'} target='_blank'>
-                                        <Image src={'/images/icon/icon_facebook.png'} alt={'facebook'} width={25} height={25} />
+                                        <Image src={'/images/icon/icon_facebook.png'} alt={'facebook'} fill />
                                     </Link>
                                 </li>
                             </ul>
