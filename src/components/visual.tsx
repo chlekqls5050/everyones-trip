@@ -64,7 +64,7 @@ export default function Visual() {
                 ))
             }
             </div>
-            <div className="w-1200">
+            <div className="w-1200  overflow-hidden">
                 <div className={style.visual_txt_box}>
                     <Swiper spaceBetween={20} slidesPerView={1} controller={{ control: imgSwiperRef.current }} onSwiper={(swiper) => (textSwiperRef.current = swiper)} modules={[Controller, EffectFade, Autoplay, Pagination]} effect="fade" fadeEffect={{ crossFade: true }} loop={true} pagination={{ type:"fraction" }} ref={swiperRef}  autoplay={{delay: 5000, disableOnInteraction: false,}}>
                         {
