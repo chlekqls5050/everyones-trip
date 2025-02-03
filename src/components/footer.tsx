@@ -1,4 +1,5 @@
 // 'use client'
+import Link from 'next/link';
 import style from './footer.module.css';
 import Image from 'next/image';
 // import { useState, useEffect } from "react";
@@ -46,12 +47,35 @@ export default function Footer(){
                                     <p className={style.title}>Address</p>
                                     <p className={style.text}>서울시 중랑구 중화동</p>
                                 </li>
+                                <li>
+                                    <p className={style.title}>GitHub</p>
+                                    <p className={style.text}>https://github.com/chlekqls5050/dabeen</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div className={style.ft_sns_wrap}>
+                            <ul>
+                                <li>
+                                    <Link href={'https://github.com/chlekqls5050/dabeen'} target='_blank'>
+                                        <Image src={'/images/icon/icon_github.png'} alt={'github'} width={25} height={25} />
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href={'https://www.instagram.com/'} target='_blank'>
+                                        <Image src={'/images/icon/icon_instagram.png'} alt={'instagram'} width={25} height={25} />
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href={'https://www.facebook.com/'} target='_blank'>
+                                        <Image src={'/images/icon/icon_facebook.png'} alt={'facebook'} width={25} height={25} />
+                                    </Link>
+                                </li>
                             </ul>
                         </div>
                     </div>
                     <div className={style.ft_bt_wrap}>
                         <div className={style.copyright}>
-                            <p>copyright ©2025 Dabeen. All Rights Reserved.</p>
+                            <p>©2025 DaBeen. All Rights Reserved &nbsp; | &nbsp; Developed by DaBeen</p>
                         </div>
                     </div>
                 </div>

@@ -3,9 +3,10 @@
     margin-top: 150px;
 }
 .ft_top_wrap {
-    padding: 50px 0;
+    padding: 50px 0 30px;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    gap: 30px;
 }
 .ft_logo_wrap {
     font-size: 1rem;
@@ -29,9 +30,10 @@
 }
 .copyright > p {
     margin: 0;
-    font-size: .7rem;
+    font-size: .6rem;
     text-align: center;
     color: #333;
+    font-family: "Montserrat", serif;
 }
 .ft_info_wrap ul {
     padding: 0;
@@ -48,11 +50,13 @@
 }
 .ft_info_wrap p.title {
     font-weight: bold;
-    font-size: .85rem;
+    font-size: .75rem;
     width: 90px;
+    line-height: 1;
 }
 .ft_info_wrap p.text {
-    font-size: .75rem;
+    font-size: .7rem;
+    line-height: 1;
 }
 .ft_info_wrap {
     flex:1;
@@ -62,3 +66,14 @@
 .ft_fix_wr {position: fixed; bottom: 5%; right: 40px; z-index: 9; filter: invert(100%);}
 .ft_fix_wr > .top_btn {display:block; background: transparent; width: 50px; height: 50px; border: 2px solid #f9f9f9; border-radius: 50%; position:relative;}
 /* .ft_fix_wr .top_btn > img {width:18px;} */
+.ft_sns_wrap {
+    position: absolute;
+    right: 0;
+    bottom: 80px;
+}
+.ft_sns_wrap > ul {
+    padding: 0;
+    display: flex;
+    gap: 15px;
+    margin: 0;
+}
