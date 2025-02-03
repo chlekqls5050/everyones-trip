@@ -19,9 +19,15 @@ export interface tripData {
 export type infoItemProps = tripData & {
     eventstartdate?: string;
     eventenddate?:string;
+    restdate?:string;
     playtime?:string;
     usetimefestival?:string;
     treatmenu?:string;
+    parking?:string;
+    distance?:string;
+    fairday?:string;
+    opentime?:string;
+    saleitem?:string;
 };
 export interface repeatItemProps {
     infotext?: string;

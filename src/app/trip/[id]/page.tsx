@@ -21,12 +21,22 @@ async function TripDetail({TripId} :{TripId:string}) {
   const tripDate:tripData[] = data.response.body.items.item;
   const filteredItems = tripDate?.filter((item) => item.contentid === TripId);
 
-  console.log(data);
 
   if (!filteredItems || filteredItems.length === 0) {
-    return <div>해당 축제 정보를 찾을 수 없습니다.</div>;
+    return <div>해당 여행 정보를 찾을 수 없습니다.</div>;
   }
-  const filterItem = filteredItems[0];
+  const filterItem = filteredItems?.[0] || null;
+  // const $el = {
+  //   areaCode : filterItem.areacode,
+  //   sigunguCode : filterItem.sigungucode,
+  //   contentid : filterItem.contentid,
+  //   contentType : filterItem.contenttypeid,
+  //   cat1 : filterItem.cat1,
+  //   cat2 : filterItem.cat2,
+  //   cat3 : filterItem.cat3,
+  //   homePage : filterItem.homepage,
+  // }
+
   const areaCode = filterItem.areacode;
   const sigunguCode = filterItem.sigungucode;
   const contentid = filterItem.contentid;
@@ -41,12 +51,22 @@ async function TripDetail({TripId} :{TripId:string}) {
   // 상세소개 쉬는날, 개장기간 등 내역을 조회 api
   const addInfoData = await fetch(`https://apis.data.go.kr/B551011/KorService1/detailIntro1?MobileOS=ETC&MobileApp=festivites&_type=json&contentId=${contentid}&contentTypeId=${contentType}&serviceKey=${process.env.NEXT_PUBLIC_API_KEY}`, {cache : "force-cache"});
   const addInfoDataJson = await addInfoData.json();
-  const tripDate2:infoItemProps = addInfoDataJson.response.body.items.item[0];
+  const tripDate2:infoItemProps = addInfoDataJson.response.body.items.item?.[0] || null;
   const eventStartDate = tripDate2.eventstartdate;
   const eventEndDate = tripDate2.eventenddate;
   const playTime = tripDate2.playtime;
   const useTimeFestival = tripDate2.usetimefestival;
   const treatMenu = tripDate2.treatmenu;
+  const parKing = tripDate2.parking;
+  const restDate = tripDate2.restdate;
+  const disTance = tripDate2.distance;
+  const fairDay = tripDate2.fairday;
+  const openTime = tripDate2.opentime;
+  const saleItem = tripDate2.saleitem;
+
+
+  
+  console.log(tripDate2);
 
 
   // 반복정보조회 / 관광정보 상세내역관련 api
@@ -56,7 +76,7 @@ async function TripDetail({TripId} :{TripId:string}) {
 
   let infoText: string | undefined = undefined;
   if (repeatDataItems && repeatDataItems.length > 0) {
-    const repeatDataItem = repeatDataItems[0];
+    const repeatDataItem = repeatDataItems?.[0] || null;
     infoText = repeatDataItem.infotext;
   }
 
@@ -65,7 +85,7 @@ async function TripDetail({TripId} :{TripId:string}) {
   const stayCategoryResponse = await fetch(`https://apis.data.go.kr/B551011/KorService1/categoryCode1?&MobileOS=ETC&MobileApp=festivites&_type=json&serviceKey=${process.env.NEXT_PUBLIC_API_KEY}&cat1=${cat1}&cat2=${cat2}&cat3=${cat3}`, {cache : "force-cache"});
   const stayCategoryJson = await stayCategoryResponse.json();
   const stayCategoryData:tripData[] = stayCategoryJson.response.body.items.item;
-  const name = stayCategoryData[0].name;
+  const name = stayCategoryData?.[0].name || null;
 
 
   return (
@@ -73,7 +93,7 @@ async function TripDetail({TripId} :{TripId:string}) {
       <div className={style.main_title_wrap}>
         <p>축제 상세정보</p>
       </div>
-      {filteredItems.map((item) => (
+      {filteredItems?.length > 0 &&  filteredItems.map((item) => (
         <div key={item.contentid}  className={style.festivites_cont}>
           <div className={`${style.festivites_info_wrap} ${style.festivites_cont_wrap}`}>
             <div className={style.img_wrap}>
@@ -86,13 +106,23 @@ async function TripDetail({TripId} :{TripId:string}) {
             <div className={style.txt_wrap}>
               <p className={style.title}>{item.title}</p>
               <div>
-                {name ? <p className={style.text}>구분 : {name}</p> : <></>}
-                {eventStartDate && eventEndDate ? <p className={style.text}>축제 기간 : {eventStartDate} ~ {eventEndDate}</p> : <></>}
-                {playTime ? <p className={style.text}>축제 시간 : {playTime?.replace(/<br>/gi, "\n")}</p> : <></>}
-                {useTimeFestival ? <p className={style.text}>이용 요금 : {useTimeFestival?.replace(/<br>/gi, "\n")}</p> : <></>}
-                {treatMenu ? <p className={style.text}>메뉴 : {treatMenu}</p> : <></>}
-                {homePage ? <p className={style.text}>홈페이지 바로가기 : {parse((homePage as string))}</p> : <></>}
-                {infoText ? <p className={style.text}>{infoText?.replace(/<br>/gi, "\n")}</p> : <></>}
+                {name && (<p className={style.text}><span className={style.info_title}>구분 : </span><span>{name}</span></p>)}
+                {disTance && (<p className={style.text}><span className={style.info_title}>거리 : </span><span>{disTance}</span></p>)}
+                {eventStartDate && eventEndDate && (<p className={style.text}><span className={style.info_title}>축제 기간 : </span><span>{eventStartDate} ~ {eventEndDate}</span></p>)}
+                {playTime && (<p className={style.text}><span className={style.info_title}>축제 시간 : </span><span>{playTime?.replace(/<br>/gi, "\n")}</span></p>)}
+                {fairDay && (<p className={style.text}><span className={style.info_title}>장서는 날 : </span><span>{fairDay?.replace(/<br>/gi, "\n")}</span></p>)}
+                {openTime && (<p className={style.text}><span className={style.info_title}>오픈 시간 : </span><span>{openTime?.replace(/<br>/gi, "\n")}</span></p>)}
+                {saleItem && (<p className={style.text}><span className={style.info_title}>판매 품목 : </span><span>{saleItem?.replace(/<br>/gi, "\n")}</span></p>)}
+                {restDate && (<p className={style.text}><span className={style.info_title}>휴무 : </span><span>{restDate?.replace(/<br>/gi, "\n")}</span></p>)}
+                {useTimeFestival && (<p className={style.text}><span className={style.info_title}>이용 요금 : </span><span>{useTimeFestival?.replace(/<br>/gi, "\n")}</span></p>)
+                }
+                {parKing && (<p className={style.text}><span className={style.info_title}>주차 여부 : </span><span>{parKing}</span></p>)}
+                {treatMenu && (<p className={style.text}><span className={style.info_title}>메뉴 : </span><span>{treatMenu}</span></p>)}
+                {homePage && (<p className={style.text}><span className={style.info_title}>홈페이지 바로가기 : </span><span>{parse((homePage as string))}</span></p>)}
+
+
+                
+                {infoText && (<p className={`${style.text} ${style.detail_infor_text}`}>{infoText?.replace(/<br>/gi, "\n")}</p>)}
               </div>
             </div>
           </div>
@@ -134,7 +164,7 @@ async function RecommendPlace({areaCode, sigunguCode} : {areaCode :string; sigun
         </div>
         <ul className={style.content_wrap}>
           {
-            tripDate.map((item) => (
+            tripDate?.length > 0 && tripDate.map((item) => (
               <li key={item.contentid}>
                 <Link href={`/trip/${item.contentid}`}>
                   <div className={style.img_wrap}>
@@ -177,7 +207,7 @@ async function StayPlace({areaCode, sigunguCode}:{areaCode:string; sigunguCode:s
         </div>
         <ul className={style.content_wrap}>
           {
-            stayDate.map((item) => (
+            stayDate?.length > 0 ? stayDate.map((item) => (
               <li key={item.contentid}>
                 <Link href={`/trip/${item.contentid}`}>
                   <div className={style.img_wrap}>
@@ -195,7 +225,9 @@ async function StayPlace({areaCode, sigunguCode}:{areaCode:string; sigunguCode:s
                   {item.tel? (<p className={style.tel}><Image src={'/images/icon/icon_phone.png'} alt='전화번호 아이콘' width={15} height={15} /> {item.tel}</p>):('')}
                   </Link>
               </li>
-            ))
+            )) : (
+              <li><p className={style.title}>근처 숙소가 없습니다.</p></li>
+            )
           }
         </ul>
       </div>

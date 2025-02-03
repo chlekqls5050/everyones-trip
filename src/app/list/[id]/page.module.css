@@ -38,7 +38,8 @@
     font-weight: bold;
     letter-spacing: 1px;
     font-family: "Montserrat", serif;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
+    text-transform: capitalize;
 }
 .list_wrap {
     display: flex;
@@ -78,6 +79,7 @@
     text-align: left;
     border-right: 1px solid #ddd;
     position: relative;
+    text-transform: capitalize;
 }
 .nav_tab_wrap > button > span {
     position: absolute;
@@ -111,6 +113,7 @@
     font-size: .8rem;
     width: 100%;
     box-sizing: border-box;
+    text-transform: capitalize;
 }
 
 

@@ -36,7 +36,9 @@ export default function KakaoMap({mapx, mapy, tel, addr1, addr2}:KakaoMapProps) 
               </Map>
             )}
           </div>
-          <ul className={style.directions_txt_wrap}>
+          {addr1 && tel ? (
+            <ul className={style.directions_txt_wrap}>
+            {addr1 && (
             <li>
               <p className={style.title}>
                 <span className={style.icon_wrap}>
@@ -48,8 +50,8 @@ export default function KakaoMap({mapx, mapy, tel, addr1, addr2}:KakaoMapProps) 
                 {addr1} <br />
                 {addr2}
               </p>
-            </li>
-            {tel? (
+            </li>)}
+            {tel && (
             <li>
               <p className={style.title}>
                 <span className={style.icon_wrap}>
@@ -60,8 +62,9 @@ export default function KakaoMap({mapx, mapy, tel, addr1, addr2}:KakaoMapProps) 
               <p className={style.text}>
                 {tel}
               </p>
-            </li>):('')}
-          </ul>
+            </li>)}
+            </ul>
+          ):""}
         </div>
       );
 }

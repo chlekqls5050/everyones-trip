@@ -42,25 +42,28 @@
     background-color: #f9f9f9;
     padding: 40px 0 100px;
 }
-.txt_wrap .title {
+.festivites_cont .txt_wrap .title {
     font-weight: bold;
     font-size: 1.2rem;
     margin: 15px 0 30px;
 }
-.txt_wrap div > .text {
+.festivites_cont .txt_wrap div > .text {
     display: flex;
-    align-items: center;
-    /* gap: 1rem; */
+    align-items: flex-start;
     line-height: 1.4;
     font-size: .8rem;
     margin: 5px 0;
+    gap: 6px;
 }
-.txt_wrap div > .text > a {
+.festivites_cont .txt_wrap .info_title {
+    white-space: nowrap;
+}
+.festivites_cont .txt_wrap div > .text > a {
     color:var(--black-color);
     display: inline-block;
     margin-left: 6px;
 }
-.txt_wrap div > .text:last-child {
+.festivites_cont .txt_wrap div > .detail_infor_text {
     margin-top: 20px;
     line-height: 1.5;
 }
