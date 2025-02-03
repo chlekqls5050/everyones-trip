@@ -10,9 +10,10 @@ export default function Header(){
             <div className={style.header_wrap}>
                 <Link href={'/'} className={style.hd_logo_wrap}>
                     <div>
-                        {/* Everyone&apos;s trip */}
                         <span>모두의 여행</span>
-                        <Image src={'/images/icon/icon_logo_map.png'} alt='로고 아이콘' width={30} height={30} />
+                        <div className={style.icon_wrap}>
+                            <Image src={'/images/icon/icon_logo_map.png'} alt='로고 아이콘' fill />
+                        </div>
                     </div>
                 </Link>
                 <div className={style.hd_right_wrap}>

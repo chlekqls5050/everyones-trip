@@ -53,8 +53,8 @@ export default function SearchBar() {
         <>
             <div className={style.hd_etc_wrap}>
                 <div className={style.sch_btn_wrap}>
-                    <button className={style.sch_btn} onClick={searchBarToggle}>
-                        {!isHidden ? <Image src="/images/icon/icon_search.png" alt="검색 아이콘" width={34} height={34} />:<Image src="/images/icon/icon_close.png" alt="닫기 아이콘" width={34} height={34} />}
+                    <button className={`${style.sch_btn} ${style.icon_wrap}`} onClick={searchBarToggle}>
+                        {!isHidden ? <Image src="/images/icon/icon_search.png" alt="검색 아이콘" fill /> : <Image src="/images/icon/icon_close.png" alt="닫기 아이콘" fill />}
                     </button>
                 </div>                
                 <div className={style.ham_btn_wrap}>
@@ -78,8 +78,8 @@ export default function SearchBar() {
                 <div className={style.ham_bg}></div>
                 <div className={style.ham_contents_box}>
                     <div className={style.ham_hd_wrap}>
-                        <button className={style.close_btn}>
-                            <Image src="/images/icon/icon_close.png" alt="닫기 아이콘" width={34} height={34} />
+                        <button className={`${style.close_btn} ${style.icon_wrap}`}>
+                            <Image src="/images/icon/icon_close.png" alt="닫기 아이콘" fill />
                         </button>
                     </div>
                     <div className={style.ham_menu_wrap}>

@@ -35,7 +35,7 @@
 }
 .sch_input_box .flex_box {
   display: flex;
-  gap:20px;
+  gap: 20px;
 }
 .sch_input_box input {
     flex: 1;
@@ -44,7 +44,7 @@
     border-radius: 5px;
     font-size: .8rem;
 }
-.sch_input_box :focus {
+.sch_input_box:focus {
     outline: none;
     outline-offset: none;
 }
@@ -123,4 +123,74 @@
 }
 .Depth_2 {
     display: none;
+}
+
+.icon_wrap {
+    position: relative;
+    width: 34px;
+    height: 34px;
+}
+
+@media (max-width: 768px) {
+    .sch_bar_wrap {
+        top: 60px;
+        height: calc(100vh - 60px);
+    }
+    .sch_input_box {
+        padding: 35px 0;
+    }
+    .sch_input_box .flex_box {
+      gap: 15px;
+    }
+    .icon_wrap {
+        width: 30px;
+        height: 30px;
+    }
+}
+@media (max-width: 600px) {
+}
+@media (max-width: 480px) {
+    .sch_input_box {
+        padding: 25px 0;
+    }
+    .sch_input_box input {
+        padding: 10px 15px;
+    }
+    .sch_input_box .flex_box {
+      gap: 10px;
+    }
+    .icon_wrap {
+        width: 25px;
+        height: 25px;
+    }
+    .sch_input_box button {
+        width: 100px;
+    }
+}
+@media (max-width: 320px) {
+    .sch_bar_wrap {
+        top: 50px;
+        height: calc(100vh - 50px);
+    }
+    .icon_wrap {
+        width: 22px;
+        height: 22px;
+    }
+
+
+    
+    .sch_input_box {
+        padding: 20px 0;
+    }
+    .sch_input_box input {
+        padding: 7px 10px;
+        border-radius: 3px;
+    }
+    .sch_input_box .flex_box {
+      gap: 7px;
+    }
+    .sch_input_box button {
+        width: 80px;
+        border-radius: 3px;
+    }
 }
