@@ -9,7 +9,6 @@
 
 html {
     font-size: 20px;
-    /* background-color: var(--white-color); */
 }
 /* body {
   cursor: url('/images/icon/camera.png') 10 10, auto;
@@ -41,7 +40,6 @@ button {
 }
 main {
     margin-top: 80px;
-    /* min-height: 100vh; */
     min-height: calc(100vh - 80px);
 }
 .inner_box {
@@ -66,8 +64,36 @@ main {
 .visual_swiper .swiper-pagination-fraction {
   color: var(--black-color);
   width: auto;
-  bottom: -30px;
   bottom: -100px;
   font-size: .8rem;
   font-weight: bold;
+}
+
+
+
+@media (max-width: 1024px) {
+  html {
+    font-size: 18px;
+  }
+  .visual_swiper .swiper-pagination-fraction {
+    bottom: -70px;
+  }
+}
+@media (max-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+  .visual_swiper .swiper-pagination-fraction {
+    bottom: -50px;
+  }
+}
+@media (max-width: 600px) {
+  .visual_swiper .swiper-pagination-fraction {
+    bottom: -30px;
+  }
+}
+@media (max-width: 480px) {
+  html {
+    font-size: 14px;
+  }
 }
