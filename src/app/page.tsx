@@ -1,4 +1,3 @@
-'use client'
 import style from "./page.module.css";
 import { tripData } from "@/types";
 import Visual from "@/components/visual";
