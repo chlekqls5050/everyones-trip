@@ -1,4 +1,4 @@
-
+'use client'
 import style from "./page.module.css";
 import { tripData } from "@/types";
 import Visual from "@/components/visual";
@@ -95,6 +95,11 @@ export default async function Home() {
         </div>
         <div className={style.main_contents_wrap}>
           <LodgmentContent />
+        </div>
+        <div className={style.inquire_wrap}>
+          <div className={style.text_wrap}>
+
+          </div>
         </div>
         <div className={style.main_board_wrap}>
           <div className={style.board_cont_wrap}>

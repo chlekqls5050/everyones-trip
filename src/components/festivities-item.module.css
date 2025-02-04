@@ -14,7 +14,6 @@
     bottom: initial !important;
     max-height: 100%;
 }
-
 .content_box {
     width:calc((100% - 3rem) / 4);
     position: relative;
@@ -78,8 +77,6 @@
     z-index: -1;
 }
 
-
-
 @media (hover: hover) {
     .content_box:hover::after {
         opacity: 1;
@@ -93,4 +90,25 @@
     .info_box a:hover::before {
         width: 100%;
     }
+}
+
+
+@media (max-width: 1024px) {
+    .content_box {
+        width: calc((100% - 1.5rem) / 4);
+    }
+    .image_box {
+        height: 350px;
+    }
+    .image_box > img {
+        height: 100% !important;
+    }
+}
+@media (max-width: 768px) {
+}
+@media (max-width: 600px) {
+}
+@media (max-width: 480px) {
+}
+@media (max-width: 320px) {
 }
