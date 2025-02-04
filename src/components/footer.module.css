@@ -1,6 +1,7 @@
 .footer {
     background-color: #eee;
     margin-top: 150px;
+    position: relative;
 }
 .ft_top_wrap {
     padding: 50px 0 30px;

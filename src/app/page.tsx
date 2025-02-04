@@ -1,78 +1,47 @@
-import style from "./page.module.css";
-import { tripData } from "@/types";
+import FestivitiesSection from "@/components/festivities-section";
+import LodgmentSection from "@/components/lodgment-section";
+import { supabase } from "@/lib/supabase";
 import Visual from "@/components/visual";
-import FestivitiesItem from "@/components/festivities-item";
-import LodgmentItem from "@/components/lodgment-item";
+import style from "./page.module.css";
 import Link from "next/link";
-import { supabase } from '@/lib/supabase';
+import MainBanner from "@/components/main-banner";
+// import MainBorad from "@/components/main-borad";
 import MainBoardItem from "@/components/main-board-item";
 
-async function FestivitiesContent(){
-  const response = await fetch(`https://apis.data.go.kr/B551011/KorService1/searchFestival1?numOfRows=4&MobileOS=ETC&MobileApp=festivites&_type=json&arrange=Q&eventStartDate=20250115&serviceKey=${process.env.NEXT_PUBLIC_API_KEY}`, {cache : "force-cache"});
-  if(!response.ok) {
-    return <div>오류가 발생했습니다...</div>
-  }
-  const result = await response.json();
-  const items:tripData[] = result.response.body.items.item;
-
-  const contentTypeId = items[0].contenttypeid;
-  return (
-    <>
-      <div className={style.main_title_wrap}>
-        <h3>전국의 축제 정보</h3>
-      </div>
-      <div className={style.festivities_wrap}>
-          { 
-            items.map((item) => (
-              <FestivitiesItem key={item.contentid} {...item} />
-            ))
-          }
-      </div>
-      <div className={style.btn_wrap}>
-        <Link href={`/list/${contentTypeId}`}>View More</Link>
-      </div>
-    </>
-  )
-}
-async function LodgmentContent() {
-  const response = await fetch(`https://apis.data.go.kr/B551011/KorService1/searchStay1?numOfRows=7&MobileOS=ETC&MobileApp=lodgment&_type=json&arrange=R&serviceKey=${process.env.NEXT_PUBLIC_API_KEY}`, {cache : "force-cache"});
-  if(!response.ok) {
-    throw new Error(`${response.statusText}`);
-  }
-  const result = await response.json();
-  const items:tripData[] = result.response.body.items.item;
-  const contentTypeId = items[0].contenttypeid;
-
-  return (
-    <>
-      <div className={style.main_title_wrap}>
-        <h3>전국의 숙박 정보</h3>
-      </div>
-      <div className={style.lodgment_wrap}>
-        <div className={style.first_item_wrap}>
-          <LodgmentItem key={items[0].contentid}{...items[0]} />
-        </div>
-        <div className={style.other_items_wrap}>
-          {items.slice(1).map((item) => (
-            <LodgmentItem key={item.contentid} {...item} />
-          ))}
-        </div>
-      </div>
-      <div className={style.btn_wrap}>
-        <Link href={`/list/${contentTypeId}`}>View More</Link>
-      </div>
-    </>
+async function getFestivitiesData() {
+  const response = await fetch(
+    `https://apis.data.go.kr/B551011/KorService1/searchFestival1?numOfRows=4&MobileOS=ETC&MobileApp=festivites&_type=json&arrange=Q&eventStartDate=20250115&serviceKey=${process.env.NEXT_PUBLIC_API_KEY}`,
+    { cache: "force-cache" }
   );
+  const result = await response.json();
+  return result.response.body.items.item;
 }
 
+async function getLodgmentData() {
+  const response = await fetch(
+    `https://apis.data.go.kr/B551011/KorService1/searchStay1?numOfRows=7&MobileOS=ETC&MobileApp=lodgment&_type=json&arrange=R&serviceKey=${process.env.NEXT_PUBLIC_API_KEY}`,
+    { cache: "force-cache" }
+  );
+  const result = await response.json();
+  return result.response.body.items.item;
+}
 
 export default async function Home() {
-
-  const { data: eventPosts, error: eventError } = await supabase.from('board').select('*').eq('type', 'event').limit(5);
-  const { data: noticePosts, error: noticeError } = await supabase.from('board').select('*').eq('type', 'notice').limit(5);
+  const festivitiesItems = await getFestivitiesData();
+  const lodgmentItems = await getLodgmentData();
+  const { data: eventPosts, error: eventError } = await supabase
+    .from("board")
+    .select("*")
+    .eq("type", "event")
+    .limit(5);
+  const { data: noticePosts, error: noticeError } = await supabase
+    .from("board")
+    .select("*")
+    .eq("type", "notice")
+    .limit(5);
 
   if (eventError || noticeError) {
-    console.error('데이터 가져오기 오류', eventError, noticeError);
+    console.error("데이터 가져오기 오류", eventError, noticeError);
     return <div>데이터 가져오는 데 문제가 발생했습니다.</div>;
   }
 
@@ -80,41 +49,26 @@ export default async function Home() {
     <div className={style.container}>
       <Visual />
       <div className="w-1200">
-        <div className={style.main_contents_wrap}>
-          <FestivitiesContent />
-        </div>
-        <div className={`${style.main_contents_wrap} ${style.main_banner_wrap}`}>
-          <div className={style.container}>
-            <div className={style.bg}></div>
-            <div className={style.banner_txt_wrap}>
-              <p className={style.txt}>당신의 특별한 순간을 위한 국내 여행 가이드</p>
-              <p className={style.title}>Everyone&apos;s trip</p>
-            </div>
-          </div>
-        </div>
-        <div className={style.main_contents_wrap}>
-          <LodgmentContent />
-        </div>
-        <div className={style.inquire_wrap}>
-          <div className={style.text_wrap}>
-
-          </div>
-        </div>
+        <FestivitiesSection items={festivitiesItems} />
+        <MainBanner />
+        <LodgmentSection items={lodgmentItems} />
         <div className={style.main_board_wrap}>
-          <div className={style.board_cont_wrap}>
-            <div>
-              <div className={style.main_title_wrap}>
-                <h3>공지사항</h3>
-                <Link href={'/board/list/notice'}>View More <span className={style.plus_sign}>+</span></Link>
+          <div className="w-1200">
+            <div className={style.board_cont_wrap}>
+              <div>
+                <div className={style.main_title_wrap}>
+                  <h3>공지사항</h3>
+                  <Link href={'/board/list/notice'}>View More <span className={style.plus_sign}>+</span></Link>
+                </div>
+                <MainBoardItem posts={noticePosts || []} />
               </div>
-              <MainBoardItem posts={noticePosts || []} />
-            </div>
-            <div>
-              <div className={style.main_title_wrap}>
-                <h3>이벤트</h3>
-                <Link href={'/board/list/event'}>View More <span className={style.plus_sign}>+</span></Link>
+              <div>
+                <div className={style.main_title_wrap}>
+                  <h3>이벤트</h3>
+                  <Link href={'/board/list/event'}>View More <span className={style.plus_sign}>+</span></Link>
+                </div>
+                <MainBoardItem posts={eventPosts || []} />
               </div>
-              <MainBoardItem posts={eventPosts || []} />
             </div>
           </div>
         </div>

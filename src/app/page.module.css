@@ -5,6 +5,7 @@
 .main_contents_wrap {
   margin-bottom: 150px;
   position: relative;
+  opacity:0;
 }
 .main_banner_wrap {
   width:100vw;
@@ -123,9 +124,7 @@
   top: 0;
   right: 0;
   height: 2px;
-  width: 0;
-  /* background: var(--black-color); */
-  
+  width: 0; 
   background-color:  var(--main-color);
   transition: .4s ease all;
 }
@@ -136,11 +135,45 @@
   bottom: 0;
 }
 
-
+.main_board_wrap {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  position: relative;
+}
+.main_board_wrap::before {
+  content: "";
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  right: -70px;
+  bottom: -250px;
+  background-color: var(--sub-color);
+  border-radius: 50%;
+  opacity: .2;
+}
+.main_board_wrap::after {
+  content: "";
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  right: 50px;
+  bottom: -100px;
+  background-color: var(--main-color);
+  border-radius: 50%;
+  opacity: .2;
+}
 /* 게시판 영역 */
+/* .main_board_wrap {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  position: relative;
+  padding: 140px 0;
+} */
 .board_cont_wrap {
   display: flex;
   gap: 100px;
+  position: relative;
+  z-index: 1;
 }
 .board_cont_wrap > div {
   width: calc((100% - 50px) / 2);
