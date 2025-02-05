@@ -37,3 +37,14 @@
         color: var(--white-color);
     }
 }
+
+
+@media (max-width: 480px) {   
+    .more_btn_wrap {
+        margin-top: 60px;
+    }
+    .more_btn_wrap > button {
+        padding: 15px 40px;
+        font-size: .8rem;
+    }
+}

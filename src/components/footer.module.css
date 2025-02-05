@@ -163,6 +163,19 @@
     .ft_sns_wrap {
         bottom: initial;
     }
+    
+    .ft_logo_wrap {
+        font-size: 1.1rem;
+    }
+    .ft_info_wrap p.title {
+        font-size: .85rem;
+    }
+    .ft_info_wrap p.text {
+        font-size: .8rem;
+    }
+    .copyright > p {
+        font-size: .7rem;
+    }
 }
 @media (max-width: 320px) {
     .footer {

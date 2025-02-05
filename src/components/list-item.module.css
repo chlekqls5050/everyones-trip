@@ -60,3 +60,39 @@
     color: var(--black-color);
     font-size: .8rem;
 }
+
+
+@media (max-width: 900px) {
+    .content_box {
+        width:calc((100% - 2rem) / 3);
+    }
+    .image_box {
+        height: 280px;
+    }
+}
+@media (max-width: 768px) {
+    .image_box {
+        height: 250px;
+    }
+}
+@media (max-width: 570px) {
+    .content_box {
+        width:calc((100% - 1rem) / 2);
+    }
+}
+
+
+@media (max-width: 480px) {
+    .info_box .addr {
+        font-size: .8rem;
+    }
+    .info_box .title {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 320px) {
+    .image_box {
+        height: 170px;
+    }
+}
