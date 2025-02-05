@@ -103,6 +103,9 @@
 }
 
 @media (max-width: 768px) {
+    .footer {
+        margin-top: 120px;
+    }
     .ft_top_wrap {
         padding: 40px 0 25px;
         gap: 20px;
@@ -133,6 +136,9 @@
     }
 }
 @media (max-width: 480px) {
+    .footer {
+        margin-top: 100px;
+    }
     .ft_top_wrap {
         padding: 30px 0 15px;
         gap: 10px;
@@ -159,6 +165,9 @@
     }
 }
 @media (max-width: 320px) {
+    .footer {
+        margin-top: 80px;
+    }
     .ft_bt_wrap {
         padding: 10px 0;
     }

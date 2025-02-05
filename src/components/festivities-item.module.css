@@ -103,12 +103,33 @@
     .image_box > img {
         height: 100% !important;
     }
+    .content_box::after {
+        opacity: 1;
+        background: rgba(0, 0, 0, .5);
+    }
+    .content_box .info_box {
+        opacity: 1;
+    }
+    .info_box a {
+        color: var(--black-color);
+        color: var(--white-color);
+    }
 }
 @media (max-width: 768px) {
-}
-@media (max-width: 600px) {
+    .content_box {
+        width: calc((100% - 1rem) / 2);
+    }
+    .image_box {
+        height: 250px;
+    }
 }
 @media (max-width: 480px) {
+    .content_box {
+        width: calc((100% - .5rem) / 2);
+    }
 }
 @media (max-width: 320px) {
+    .image_box {
+        height: 200px;
+    }
 }

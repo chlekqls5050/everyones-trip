@@ -14,7 +14,8 @@
 .board_list_wrap > li::after {
     content: "";
     position: absolute;
-    top:50%; left: 0;
+    top:50%;
+    left: 0;
     transform: translateY(-50%);
     width: 50px;
     height: calc(100% - 40px);
@@ -32,4 +33,18 @@
 .board_list_wrap > .event::after {
     content: "event";
     background-color: var(--sub-color);
+}
+
+
+
+
+@media (max-width: 480px) {
+    .board_list_wrap > li::after {
+        width: 40px;
+        height: calc(100% - 30px);
+    }
+    .board_list_wrap > li {
+        padding: 15px 10px;
+        padding-left: 45px;
+    }
 }

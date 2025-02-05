@@ -65,10 +65,6 @@ async function TripDetail({TripId} :{TripId:string}) {
   const saleItem = tripDate2.saleitem;
 
 
-  
-  console.log(tripDate2);
-
-
   // 반복정보조회 / 관광정보 상세내역관련 api
   const repeatData = await fetch(`https://apis.data.go.kr/B551011/KorService1/detailInfo1?MobileOS=ETC&MobileApp=festivites&_type=json&contentId=${contentid}&contentTypeId=${contentType}&serviceKey=${process.env.NEXT_PUBLIC_API_KEY}`, {cache : "force-cache"});
   const repeatDataJson = await repeatData.json();
