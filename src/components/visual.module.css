@@ -225,6 +225,10 @@
   .visual_wrap::after {
     height: 150px;
   }
+  
+  .visual_txt_box .title {
+    line-height: 1.4;
+  }
 }
 @media (max-width: 320px) {
   .visual_wrap {
@@ -239,12 +243,10 @@
   }
   .visual_txt_box .title {
     margin-bottom: 5px;
+    font-size: 1.6rem;
   }
   .swiper_toggle_btn {
     left: 30px;
-  }
-  .visual_txt_box .title {
-    font-size: 1.6rem;
   }
   .visual_txt_box .text {
     font-size: 1rem;

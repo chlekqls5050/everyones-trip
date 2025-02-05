@@ -48,7 +48,9 @@ export default function Page({ params }: { params: Promise<{ id: string }>}) {
             </div>
             <div className={style.sub_nav_wrap}>
                 <Link href={'/'}>
-                    <Image src={'/images/icon/icon_home.png'} alt={'home 버튼'} width={20} height={20} />
+                    <span>
+                        <Image src={'/images/icon/icon_home.png'} alt={'home 버튼'} fill />
+                    </span>
                 </Link>
                 <div className={style.nav_tab_wrap}>
                 <button

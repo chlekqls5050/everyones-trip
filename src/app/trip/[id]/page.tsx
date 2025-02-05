@@ -236,10 +236,12 @@ async function StayPlace({areaCode, sigunguCode}:{areaCode:string; sigunguCode:s
 export default function Page({ params }: { params: Promise<{ id: string }> }) {
   const {id} = use(params);
   return (
+    <>
     <section className={style.container}>
       <div className="w-1200">
           <TripDetail TripId={id} />
       </div>
     </section>
+    </>
   )
 }

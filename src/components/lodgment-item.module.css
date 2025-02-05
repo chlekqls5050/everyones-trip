@@ -60,6 +60,14 @@
         white-space: nowrap;
     }
 }   
+@media (max-width: 480px) {
+    .info_box .addr {
+        font-size: .85rem;
+    }
+    .info_box .title{
+        font-size: 1.1rem;
+    }
+}
 @media (max-width: 320px) {
     .info_box {
         padding: 5px 5px 10px;

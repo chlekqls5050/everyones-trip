@@ -127,6 +127,15 @@
     .content_box {
         width: calc((100% - .5rem) / 2);
     }
+    .info_box .title {
+        font-size: 1.1rem;
+    }
+    .info_box .addr {
+        font-size: .9rem;
+    }
+    .info_box a {
+        font-size: .8rem;
+    }
 }
 @media (max-width: 320px) {
     .image_box {

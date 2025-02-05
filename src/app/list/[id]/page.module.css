@@ -60,7 +60,16 @@
     box-sizing: border-box;
     background: var(--main-color);
 }
-.sub_nav_wrap > a > img {
+
+.sub_nav_wrap > a > span {
+    width:20px;
+    height: 20px;
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: -2px;
+}
+.sub_nav_wrap > a > span > img {
     vertical-align: middle;
     filter: invert(1);
 }
@@ -160,6 +169,10 @@
     .nav_tab_wrap > ul > li > a {
         padding: 13px 15px;
     }
+    .sub_nav_wrap > a > span {
+        width:17px;
+        height: 17px;
+    }
 }
 @media (max-width: 320px) { 
     .banner_img_wrap {
@@ -167,5 +180,14 @@
     }
     .sub_nav_wrap {
         margin-bottom: 60px;
+        height: 40px;
+        line-height: 40px;
     } 
+    .sub_nav_wrap > a {
+        width: 50px;
+    }
+    .sub_nav_wrap > a > span {
+        width: 15px;
+        height: 15px;
+    }
 }
