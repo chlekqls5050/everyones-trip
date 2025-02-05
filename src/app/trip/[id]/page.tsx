@@ -1,4 +1,3 @@
-// import NotFound from '@/app/404';
 import { tripData, infoItemProps, repeatItemProps } from '@/types';
 import style from "./page.module.css";
 import Image from "next/image";

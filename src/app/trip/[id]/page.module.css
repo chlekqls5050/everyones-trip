@@ -140,6 +140,7 @@
 }
 .directions_wrap > .directions_map_wrap {
     flex: 1;
+    height: 400px;
 }
 .directions_wrap > .directions_txt_wrap {
     width: 30%;
@@ -175,4 +176,174 @@
     transform: translate(-50%, -50%);
     margin: 0;
     max-width: 90%;
+}
+
+
+@media (max-width: 1024px) {
+    .container {
+        margin-top: 150px;
+    }
+    .festivites_info_wrap {
+        gap:40px;
+    }
+    .festivites_info_wrap .img_wrap {
+        width: calc((100% - 40px) / 2);
+        border-radius: 15px 0 15px 0;
+    }
+    .festivites_info_wrap .txt_wrap {
+        width: calc((100% - 40px) / 2);
+    }
+    .main_title_wrap > p {
+        font-size: 1.2rem;
+        margin-top: 0;
+    }
+    .sub_title_wrap > p {
+        font-size: 1.1rem;
+    }
+    .festivites_suggestion_wrap .content_wrap {
+        gap: 10px;
+    }
+}
+@media (max-width: 768px) {
+    .container {
+        margin-top: 120px;
+    }
+    .festivites_info_wrap {
+        flex-wrap: wrap;
+        gap: 25px;
+        margin-bottom: 80px;
+    }
+    .festivites_info_wrap .img_wrap {
+        width: 100%;
+        height: 300px;
+    }
+    .festivites_info_wrap .txt_wrap {
+        width: 100%;
+        min-height: auto;
+    }
+    .festivites_info_wrap .txt_wrap .title {
+        margin: 0 0 20px;
+        font-size: 1rem;
+    }
+    .festivites_map_wrap {
+        padding: 30px 0 70px;
+    }
+    .festivites_cont_wrap {
+        margin-bottom: 80px;
+    }
+    .festivites_suggestion_wrap .content_wrap .img_wrap {
+        height: 130px;
+    }
+    
+    .directions_wrap > .directions_map_wrap {
+        height: 300px;
+    }
+    .directions_wrap {
+        gap: 30px;
+    }
+    .directions_wrap > .directions_txt_wrap {
+        width: 35%;
+    }
+    .directions_wrap .icon_wrap {
+        width: 20px;
+        height: 20px;
+    }
+}
+@media (max-width: 600px) {
+    .festivites_suggestion_wrap .content_wrap {
+        flex-wrap: wrap;
+        gap: 2rem 1rem;
+    }
+    .festivites_suggestion_wrap .content_wrap > li {
+        width: calc((100% - 1rem) / 2);
+    }
+    .festivites_suggestion_wrap .content_wrap .img_wrap {
+        height: 150px;
+    }
+    .festivites_suggestion_wrap .content_wrap .title {
+        font-size: .85rem;
+        margin: 10px 0 ;
+    }
+    .directions_wrap {
+        flex-wrap: wrap;
+    }
+    .directions_wrap > .directions_txt_wrap {
+        width: 100%;
+        margin: 0;
+    }
+    .directions_wrap > .directions_txt_wrap li:last-child {
+        margin-bottom: 0;
+    }
+}
+@media (max-width: 480px) {
+    .container {
+        margin-top: 100px;
+    }
+    .festivites_cont_wrap {
+        margin-bottom: 60px;
+    }
+    .sub_title_wrap > p {
+        margin-top: 0;
+    }
+    .festivites_map_wrap {
+        padding: 30px 0 50px;
+    }
+    .festivites_info_wrap .img_wrap {
+        height: 230px;
+    }
+    .festivites_info_wrap {
+        gap: 20px;
+    }
+    .festivites_info_wrap .txt_wrap .title {
+        margin-bottom: 15px;
+    }
+    .festivites_cont .txt_wrap div > .detail_infor_text {
+        margin-top: 15px;
+    }
+    .directions_wrap > .directions_map_wrap {
+        height: 250px;
+    }
+    .directions_wrap .icon_wrap {
+        width: 18px;
+        height: 18px;
+    }
+}
+@media (max-width: 320px) {
+    .container {
+        margin-top: 80px;
+    }
+    .festivites_info_wrap .img_wrap {
+        height: 200px;
+        border-radius: 10px 0 10px 0;
+    }
+    .festivites_info_wrap {
+        gap: 15px;
+    }
+    .festivites_info_wrap .txt_wrap .title {
+        margin-bottom: 10px;
+    }
+    .festivites_cont .txt_wrap div > .detail_infor_text {
+        margin-top: 10px;
+    }
+    .festivites_cont_wrap {
+        margin-bottom: 50px;
+    }
+    .directions_wrap > .directions_map_wrap {
+        height: 200px;
+    }
+    .directions_wrap .icon_wrap {
+        width: 15px;
+        height: 15px;
+    }
+    .directions_wrap {
+        gap: 15px;
+    }
+    .directions_txt_wrap li {
+        margin-bottom: 20px;
+    }
+    
+    .directions_txt_wrap .title {
+        margin-bottom: 10px;
+        gap: 5px;
+    }
 }

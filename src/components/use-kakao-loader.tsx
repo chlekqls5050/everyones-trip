@@ -31,7 +31,7 @@ export default function KakaoMap({mapx, mapy, tel, addr1, addr2}:KakaoMapProps) 
           <div className={style.directions_map_wrap}>
             <Script src={KAKAO_SDK_URL} strategy="lazyOnload" onLoad={() => {setKakaoLoaded(true);}} />
             {kakaoLoaded && (
-              <Map center={{ lat, lng }} style={{ width: '100%', height: '400px' }}>
+              <Map center={{ lat, lng }} style={{ width: '100%', height: '100%' }}>
                 <MapMarker position={{ lat, lng }} />
               </Map>
             )}
