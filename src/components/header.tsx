@@ -2,6 +2,7 @@ import Link from "next/link";
 import style from './header.module.css';
 import Image from "next/image";
 import HeaderUtillties from "./header-utilities";
+import { Suspense } from "react";
 
 export default function Header(){
     return (
@@ -30,7 +31,9 @@ export default function Header(){
                             </li>
                         </ul>
                     </div>
-                    <HeaderUtillties />
+                    <Suspense fallback={<div>Loading...</div>}>
+                        <HeaderUtillties />
+                    </Suspense>
                 </div>
             </div>
           </div>
