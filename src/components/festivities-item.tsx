@@ -1,6 +1,6 @@
 import type { tripData } from "@/types";
 import Link from "next/link";
-import style from "./Festivities-item.module.css";
+import style from "./festivities-item.module.css";
 import Image from "next/image";
 
 

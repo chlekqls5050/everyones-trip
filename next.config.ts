@@ -1,10 +1,17 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
-  
-  images :{
-    domains : ["tong.visitkorea.or.kr"],
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'tong.visitkorea.or.kr',
+      },
+      {
+        protocol: 'http',
+        hostname: 'tong.visitkorea.or.kr',
+      },
+    ],
   },
 };
 
