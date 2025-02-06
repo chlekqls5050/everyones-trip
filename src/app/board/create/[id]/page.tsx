@@ -35,7 +35,7 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
   return (
     <div className={style.container}>
       <div className='w-1200'>
-        <div className={style.title_wrap}>
+        <div className={style.board_title_wrap}>
           <h3>{id}</h3>
         </div>
         <form onSubmit={handleSubmit} className={style.form_wrap}>

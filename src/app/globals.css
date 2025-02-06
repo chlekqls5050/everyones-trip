@@ -100,6 +100,9 @@ main {
   html {
     font-size: 14px;
   }
+  main {
+    min-height: initial;
+  }
 }
 @media (max-width: 320px) {
   html {
@@ -107,6 +110,5 @@ main {
   }
   main {
     margin-top: 50px;
-    min-height: calc(100vh - 50px);
   }
 }
