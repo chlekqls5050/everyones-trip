@@ -16,7 +16,7 @@ export default function SearchBar() {
   const q = searchParams?.get("q") || "";
 
   useEffect(() => {
-    setSearch(q); // 페이지 로드 시 쿼리 파라미터 값을 초기 입력값으로 설정
+    setSearch(q);
   }, [q]);
 
   const searchBarToggle = () => {
