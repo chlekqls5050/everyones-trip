@@ -90,6 +90,9 @@
         padding: 12px 15px;
         font-size: .85rem;
     }
+    .board_list_wrap > p {
+        font-size: .85rem;
+    }
 }
 @media (max-width: 320px) {
     .board_title_wrap {
