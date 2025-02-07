@@ -25,24 +25,45 @@ async function getLodgmentData() {
   const result = await response.json();
   return result.response.body.items.item;
 }
+async function getInitialData() {
+  try {
+    const [lodgmentData, eventData, noticeData] = await Promise.all([
+      getLodgmentData(),
+      supabase
+        .from("board")
+        .select("*")
+        .eq("type", "event")
+        .limit(5),
+      supabase
+        .from("board")
+        .select("*")
+        .eq("type", "notice")
+        .limit(5)
+    ]);
+
+    return {
+      lodgmentItems1: lodgmentData,
+      eventPosts: eventData.data,
+      noticePosts: noticeData.data,
+    };
+  } catch (error) {
+    console.error("데이터 가져오기 오류:", error);
+    return {
+      lodgmentItems1: [],
+      eventPosts: [],
+      noticePosts: [],
+    };
+  }
+}
 
 export default async function Home() {
   const festivitiesItems = await getFestivitiesData();
   const lodgmentItems = await getLodgmentData();
-  const { data: eventPosts, error: eventError } = await supabase
-    .from("board")
-    .select("*")
-    .eq("type", "event")
-    .limit(5);
-  const { data: noticePosts, error: noticeError } = await supabase
-    .from("board")
-    .select("*")
-    .eq("type", "notice")
-    .limit(5);
+  
+  const { lodgmentItems1, eventPosts, noticePosts } = await getInitialData();
 
-  if (eventError || noticeError) {
-    console.error("데이터 가져오기 오류", eventError, noticeError);
-    return <div>데이터 가져오는 데 문제가 발생했습니다.</div>;
+  if (!lodgmentItems1 || !eventPosts || !noticePosts) {
+    return <div>데이터 가져오기 오류</div>;
   }
 
   return (
