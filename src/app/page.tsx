@@ -24,49 +24,25 @@ async function getLodgmentData() {
   const result = await response.json();
   return result.response.body.items.item;
 }
-export async function getBoardData() {
-  const { data: eventPosts, error: eventError } = await supabase
-    .from('board')
-    .select('*')
-    .eq('type', 'event')
-    .limit(5);
 
-  const { data: noticePosts, error: noticeError } = await supabase
-    .from('board')
-    .select('*')
-    .eq('type', 'notice')
-    .limit(5);
-
-  if (eventError || noticeError) {
-    console.error('데이터 가져오기 오류', eventError, noticeError);
-    return { eventPosts: [], noticePosts: [] };
-  }
-
-  return { eventPosts, noticePosts };
-}
 export default async function Home() {
   const festivitiesItems = await getFestivitiesData();
   const lodgmentItems = await getLodgmentData();
+  const { data: eventPosts, error: eventError } = await supabase
+    .from("board")
+    .select("*")
+    .eq("type", "event")
+    .limit(5);
+  const { data: noticePosts, error: noticeError } = await supabase
+    .from("board")
+    .select("*")
+    .eq("type", "notice")
+    .limit(5);
 
-
-  const { eventPosts, noticePosts } = await getBoardData();
-
-
-  // const { data: eventPosts, error: eventError } = await supabase
-  //   .from("board")
-  //   .select("*")
-  //   .eq("type", "event")
-  //   .limit(5);
-  // const { data: noticePosts, error: noticeError } = await supabase
-  //   .from("board")
-  //   .select("*")
-  //   .eq("type", "notice")
-  //   .limit(5);
-
-  // if (eventError || noticeError) {
-  //   console.error("데이터 가져오기 오류", eventError, noticeError);
-  //   return <div>데이터 가져오는 데 문제가 발생했습니다.</div>;
-  // }
+  if (eventError || noticeError) {
+    console.error("데이터 가져오기 오류", eventError, noticeError);
+    return <div>데이터 가져오는 데 문제가 발생했습니다.</div>;
+  }
 
   return (
     <div className={style.container}>
