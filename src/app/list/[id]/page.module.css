@@ -88,6 +88,7 @@
     border-right: 1px solid #ddd;
     position: relative;
     text-transform: capitalize;
+    color: var(--black-color);
 }
 .nav_tab_wrap > button > span {
     position: absolute;

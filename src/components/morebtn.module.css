@@ -12,6 +12,7 @@
     cursor: pointer;
     transition: all .4s;
     position: relative;
+    color: var(--black-color);
 }
 .more_btn_wrap > button::after {
     content:"";
