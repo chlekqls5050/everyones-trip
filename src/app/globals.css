@@ -38,8 +38,8 @@ button {
   border: 0;
   padding: 0;
 
-  -moz-appearance:none; /* Firefox */
-  -webkit-appearance:none; /* Safari and Chrome */
+  -moz-appearance:none;
+  -webkit-appearance:none;
   appearance:none;
 }
 main {

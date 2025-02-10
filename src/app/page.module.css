@@ -13,7 +13,8 @@
   position: relative;
 }
 .main_banner_wrap .bg {
-  background: url('/images/main_banner_img.jpg') no-repeat center / cover;
+  background: url('/images/main_banner_img.jpg') no-repeat center;
+  background-size: cover;
   background-attachment: fixed;
   height: 80vh;
 }
@@ -262,6 +263,9 @@
     width: 100%;
   }
 
+  .main_banner_wrap .bg {
+    background-size: auto;
+  }
   
   .main_board_wrap::before {
     width: 300px;
