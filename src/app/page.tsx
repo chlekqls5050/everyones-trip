@@ -32,12 +32,12 @@ export default async function Home() {
     .from("board")
     .select("*")
     .eq("type", "event")
-    .limit(5);
+    .limit(3);
   const { data: noticePosts, error: noticeError } = await supabase
     .from("board")
     .select("*")
     .eq("type", "notice")
-    .limit(5);
+    .limit(3);
 
   if (eventError || noticeError) {
     console.error("데이터 가져오기 오류", eventError, noticeError);
