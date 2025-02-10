@@ -15,7 +15,7 @@
     "framer-motion": "^12.0.6",
     "gsap": "^3.12.7",
     "html-react-parser": "^5.2.2",
-    "next": "15.1.4",
+    "next": "^15.1.6",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-kakao-maps-sdk": "^1.1.27",
@@ -29,5 +29,17 @@
     "eslint": "^9",
     "eslint-config-next": "15.1.4",
     "typescript": "^5"
-  }
+  },
+  "description": "This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chlekqls5050/dabeen.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chlekqls5050/dabeen/issues"
+  },
+  "homepage": "https://github.com/chlekqls5050/dabeen#readme"
 }
