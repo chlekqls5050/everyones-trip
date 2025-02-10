@@ -24,13 +24,13 @@
     background-color: #fff;
     height: 80px;
 }
-.info_box .title{
+.info_box .title {
     margin: 10px 0 5px;
     font-size: 1rem;
     font-weight: bold;
     letter-spacing: -.5px;
 }
-.info_box .addr{
+.info_box .addr {
     margin: 0;
     font-size: .7rem;
     word-break: keep-all;
@@ -42,16 +42,21 @@
 @media (max-width: 768px) {
     .info_box {
         height: auto;
-        left: .5px;
-        padding: 10px 10px 20px;
+        /* left: .5px; */
+        /* padding: 10px 10px 20px; */
+        padding: 0 5px;
         box-sizing: border-box;
+        position: relative;
     }
     .image_box {
-        border: 1px solid #ccc;
+        /* border: 1px solid #ccc; */
+        height: calc(100% - 60px);
     }
     .image_box > img {
         width: 100% !important;
-        top: calc(50% - 33px) !important;
+        top: 50% !important;
+        /* top: 0% !important;
+        transform: translateX(-50%) !important; */
     }
     .info_box .title{
         word-break: keep-all;
