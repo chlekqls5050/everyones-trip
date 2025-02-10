@@ -34,7 +34,9 @@ export default function MainBanner () {
     return (
         <div className={`${style.main_contents_wrap} ${style.main_banner_wrap}`} ref={boxRef}>
           <div className={style.container}>
-            <div className={style.bg}></div>
+            <div className={style.bg_wrap}>
+              <div className={style.bg}></div>
+            </div>
             <div className={style.banner_txt_wrap}>
               <p className={style.txt}>당신의 특별한 순간을 위한 국내 여행 가이드</p>
               <p className={style.title}>Everyone&apos;s trip</p>
