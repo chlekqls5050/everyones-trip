@@ -2,7 +2,6 @@ import Header from "@/components/header";
 import Footer from "@/components/footer";
 import "./globals.css";
 import { Metadata } from "next";
-import Head from "next/head";
 
 
 export const metadata: Metadata = {
@@ -12,6 +11,11 @@ export const metadata: Metadata = {
     title:"모두의 여행",
     description:"여행 코스부터 명소까지, 모두의 여행이 함께합니다.",
     // images:['/thumbnail.png']
+  },
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 1
   }
 };
 
@@ -23,9 +27,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-      </Head>
       <body>
         <Header />
         <main>
