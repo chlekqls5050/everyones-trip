@@ -80,7 +80,7 @@ export default function Visual() {
                     </Swiper>
                     <div className={style.swiper_toggle_btn}>
                         <button onClick={toggleAutoplay}>
-                            {isAutoplay ? '⏸' : '▶'}
+                            {isAutoplay ? '∣∣' : '▶'}
                         </button>
                     </div>
                 </div>
