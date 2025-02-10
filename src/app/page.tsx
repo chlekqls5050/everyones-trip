@@ -1,6 +1,6 @@
+import { supabase } from "@/lib/supabase";
 import FestivitiesSection from "@/components/festivities-section";
 import LodgmentSection from "@/components/lodgment-section";
-import { supabase } from "@/lib/supabase";
 import Visual from "@/components/visual";
 import style from "./page.module.css";
 import Link from "next/link";
@@ -9,8 +9,7 @@ import MainBoardItem from "@/components/main-board-item";
 
 async function getFestivitiesData() {
   const response = await fetch(
-    `https://apis.data.go.kr/B551011/KorService1/searchFestival1?numOfRows=4&MobileOS=ETC&MobileApp=festivites&_type=json&arrange=Q&eventStartDate=20250115&serviceKey=${process.env.NEXT_PUBLIC_API_KEY}`,
-    { cache: "force-cache" }
+    `https://apis.data.go.kr/B551011/KorService1/searchFestival1?numOfRows=4&MobileOS=ETC&MobileApp=festivites&_type=json&arrange=Q&eventStartDate=20250115&serviceKey=${process.env.NEXT_PUBLIC_API_KEY}`
   );
   const result = await response.json();
   return result.response.body.items.item;
@@ -18,12 +17,12 @@ async function getFestivitiesData() {
 
 async function getLodgmentData() {
   const response = await fetch(
-    `https://apis.data.go.kr/B551011/KorService1/searchStay1?numOfRows=7&MobileOS=ETC&MobileApp=lodgment&_type=json&arrange=R&serviceKey=${process.env.NEXT_PUBLIC_API_KEY}`,
-    { cache: "force-cache" }
+    `https://apis.data.go.kr/B551011/KorService1/searchStay1?numOfRows=7&MobileOS=ETC&MobileApp=lodgment&_type=json&arrange=R&serviceKey=${process.env.NEXT_PUBLIC_API_KEY}`
   );
   const result = await response.json();
   return result.response.body.items.item;
 }
+
 async function getBoardData() {
   const { data: eventPosts, error: eventError } = await supabase
     .from("board")
@@ -38,14 +37,13 @@ async function getBoardData() {
 
   if (eventError || noticeError) {
     console.error("데이터 가져오기 오류", eventError, noticeError);
-    return { eventPosts: [], noticePosts: [] }; // 기본 빈 배열 반환
+    return { eventPosts: [], noticePosts: [] };
   }
 
   return { eventPosts, noticePosts };
 }
+
 export default async function Home() {
-  // const festivitiesItems = await getFestivitiesData();
-  // const lodgmentItems = await getLodgmentData();
   const [festivitiesItems, lodgmentItems, boardData] = await Promise.all([
     getFestivitiesData(),
     getLodgmentData(),
