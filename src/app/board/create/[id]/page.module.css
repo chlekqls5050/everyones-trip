@@ -85,6 +85,7 @@
     z-index: 1;
     transition: all .3s;
     font-size: .7rem;
+    color: var(--black-color);
 }
 .submit_btn_wrap button::after {
     content: "";
