@@ -37,10 +37,11 @@ button {
   background-color: transparent;
   border: 0;
   padding: 0;
-
-  -moz-appearance:none;
-  -webkit-appearance:none;
-  appearance:none;
+}
+button, input[type=button], input[type=submit], input[type=reset] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 main {
     margin-top: 80px;
