@@ -81,6 +81,7 @@
     font-size: 1rem;
     cursor: pointer;
     line-height: 1;
+    color: var(--black-color);
 }
 .snow_wrap .snow_div {
     position: absolute;
@@ -205,6 +206,7 @@
   }
   .swiper_toggle_btn {
     left: 40px;
+    bottom: 1px;
   }
   .visual_txt_box .hashtag {
     margin-top: 0;
