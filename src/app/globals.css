@@ -35,8 +35,12 @@ a {
 }
 button {
   background-color: transparent;
-    border: 0;
-    padding: 0;
+  border: 0;
+  padding: 0;
+
+  -moz-appearance:none; /* Firefox */
+  -webkit-appearance:none; /* Safari and Chrome */
+  appearance:none;
 }
 main {
     margin-top: 80px;
