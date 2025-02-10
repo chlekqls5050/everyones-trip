@@ -58,11 +58,12 @@
         /* top: 0% !important;
         transform: translateX(-50%) !important; */
     }
-    .info_box .title{
+    .info_box .title {
         word-break: keep-all;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
+        font-size: .9rem;
     }
 }   
 @media (max-width: 480px) {

@@ -272,10 +272,10 @@
     width: 100%;
   }
 
-  .main_banner_wrap .bg {
+  /* .main_banner_wrap .bg {
     background-size: auto;
     background-position: center top;
-  }
+  } */
   
   .main_board_wrap::before {
     width: 300px;
