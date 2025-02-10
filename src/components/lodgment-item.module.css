@@ -68,11 +68,11 @@
 }   
 @media (max-width: 480px) {
     .info_box .addr {
-        font-size: .85rem;
+        font-size: .8rem;
     }
-    .info_box .title{
+    /* .info_box .title{
         font-size: 1.1rem;
-    }
+    } */
 }
 @media (max-width: 320px) {
     .info_box {
