@@ -24,10 +24,7 @@ async function getLodgmentData() {
   const result = await response.json();
   return result.response.body.items.item;
 }
-
-export default async function Home() {
-  const festivitiesItems = await getFestivitiesData();
-  const lodgmentItems = await getLodgmentData();
+async function getBoardData() {
   const { data: eventPosts, error: eventError } = await supabase
     .from("board")
     .select("*")
@@ -41,8 +38,19 @@ export default async function Home() {
 
   if (eventError || noticeError) {
     console.error("데이터 가져오기 오류", eventError, noticeError);
-    return <div>데이터 가져오는 데 문제가 발생했습니다.</div>;
+    return { eventPosts: [], noticePosts: [] }; // 기본 빈 배열 반환
   }
+
+  return { eventPosts, noticePosts };
+}
+export default async function Home() {
+  // const festivitiesItems = await getFestivitiesData();
+  // const lodgmentItems = await getLodgmentData();
+  const [festivitiesItems, lodgmentItems, boardData] = await Promise.all([
+    getFestivitiesData(),
+    getLodgmentData(),
+    getBoardData(),
+  ]);
 
   return (
     <div className={style.container}>
@@ -59,14 +67,14 @@ export default async function Home() {
                   <h3>공지사항</h3>
                   <Link href={'/board/list/notice'}>View More <span className={style.plus_sign}>+</span></Link>
                 </div>
-                <MainBoardItem posts={noticePosts || []} />
+                <MainBoardItem posts={boardData.noticePosts || []} />
               </div>
               <div>
                 <div className={style.main_title_wrap}>
                   <h3>이벤트</h3>
                   <Link href={'/board/list/event'}>View More <span className={style.plus_sign}>+</span></Link>
                 </div>
-                <MainBoardItem posts={eventPosts || []} />
+                <MainBoardItem posts={boardData.eventPosts || []} />
               </div>
             </div>
           </div>
