@@ -10,7 +10,7 @@ import MainBoardItem from "@/components/main-board-item";
 async function getFestivitiesData() {
   const response = await fetch(
     `https://apis.data.go.kr/B551011/KorService1/searchFestival1?numOfRows=4&MobileOS=ETC&MobileApp=festivites&_type=json&arrange=Q&eventStartDate=20250115&serviceKey=${process.env.NEXT_PUBLIC_API_KEY}`,
-    { cache: "force-cache" }
+    { cache: "force-cache" } // { next: { revalidate: 86400 } }
   );
   const result = await response.json();
   return result.response.body.items.item;
