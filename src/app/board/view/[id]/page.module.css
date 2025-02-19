@@ -44,15 +44,20 @@
     transform: translateY(-50%);
 }
 .creation_cont_wrap {
-    padding: 30px 20px;
+    padding: 40px 20px;
     box-sizing: border-box;
     border-bottom: 1px solid #bbb;
     border-top: 1px solid #bbb;
     min-height: 350px;
+    position: relative;
 }
 .creation_cont_wrap > p {
     margin: 0;
     font-size: .8rem;
+    line-height: 1.5;
+    white-space: pre-line;
+    text-align: center;
+    word-break: keep-all;
 }
 .creation_btn_wrap {
     margin-top: 50px;
@@ -86,6 +91,7 @@
     justify-content: flex-end;
     gap:15px;
     margin-top: 30px;
+    align-items: center;
 }
 .password_input_wrap input {
     border: none;
@@ -95,14 +101,31 @@
     box-sizing: border-box;
     border-radius: 0;
 }
-.password_input_wrap .delete_btn {
+.option_btn_wrap {
+    height: 100%;
+    display: flex;
+    gap: 7px;
+}
+.option_btn_wrap > button {
     cursor: pointer;
     border: 1px solid #000;
-    padding: 3px 20px;
-    font-size: .7rem;
+    padding: 10px 20px 8px;
     color: var(--black-color);
+    font-size: .7rem;
+    line-height: 1;
 }
-
+.creation_cont_wrap .edited {
+    resize: none;
+    margin: 0;
+    font-size: .8rem;
+    width: calc(100% - 40px);
+    height: calc(100% - 80px);
+    position: absolute;
+    border: 1px solid #bbb;
+    padding: 20px;
+    box-sizing: border-box;
+    line-height: 1.5;
+}
 
 @media (hover: hover) {
     .creation_btn_wrap a:hover span {
@@ -141,11 +164,17 @@
         padding: 10px;
         font-size: .8rem;
     }
-    .password_input_wrap .delete_btn {
+    .option_btn_wrap > button {
         font-size: .8rem;
     }
     .creation_btn_wrap > a > span {
         font-size: .8rem;
+    }
+    .creation_cont_wrap .edited {
+        width: calc(100% - 30px);
+        height: calc(100% - 50px);
+        font-size: .9rem;
+        padding: 15px;
     }
 }
 @media (max-width: 480px) {
@@ -165,6 +194,12 @@
     .creation_cont_wrap > p {
         font-size: .85rem;
     }
+    .creation_cont_wrap .edited {
+        width: calc(100% - 20px);
+        height: calc(100% - 30px);
+        font-size: .85rem;
+        padding: 10px;
+    }
 }
 @media (max-width: 320px) {
     .container {
@@ -173,7 +208,7 @@
     .creation_cont_wrap {
         min-height: 200px;
     }
-    .password_input_wrap .delete_btn {
+    .option_btn_wrap > button {
         font-size: .75rem;
         padding: 10px 20px;
     }
