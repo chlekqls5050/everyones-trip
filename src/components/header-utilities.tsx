@@ -4,7 +4,7 @@ import React, { useRef, useState, useEffect } from "react";
 import style from "./header-utilities.module.css";
 import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
-import Link from "next/link";
+// import Link from "next/link";
 
 export default function SearchBar() {
   const searchBarRef = useRef<HTMLDivElement | null>(null);
