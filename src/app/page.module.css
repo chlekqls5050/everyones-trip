@@ -22,7 +22,7 @@
   height: 100%;
 }
 .main_banner_wrap .bg {
-  background: url('/images/main_banner_img.jpg') no-repeat center;
+  background: url('/images/main_banner_img_v3.jpg') no-repeat center;
   background-size: cover;
   /* background-attachment: fixed; */
 
@@ -271,12 +271,10 @@
   .first_item_wrap {
     width: 100%;
     height: 300px;
-    /* height: auto; */
   }
   
   .other_items_wrap > div {
     height: 180px;
-    /* height: auto; */
   }
   
   .first_item_wrap > div,
@@ -291,11 +289,6 @@
   .board_cont_wrap > div {
     width: 100%;
   }
-
-  /* .main_banner_wrap .bg {
-    background-size: auto;
-    background-position: center top;
-  } */
   
   .main_board_wrap::before {
     width: 300px;

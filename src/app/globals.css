@@ -3,16 +3,24 @@
 :root {
   --white-color: #f9f9f9;
   --black-color: #222;
-  --main-color: #A7C7E7;
-  --sub-color: #2581dc;  
+  /* 겨울 ver */
+  /* --main-color: #A7C7E7;
+  --sub-color: #2581dc;   */
+  /* 봄 ver */
+  --main-color: #fde0ff;
+  --sub-color: #faa8ff;  
 }
 
 html {
     font-size: 20px;
 }
-/* body {
-  cursor: url('/images/icon/camera.png') 10 10, auto;
-} */
+
+body {
+  cursor: url('/images/icon/icon_cursor.png') 10 10, auto;
+}
+button, a, button {
+  cursor:url('/images/icon/icon_cursor_on.png') 10 10, pointer;
+}
 html,
 body {
   font-family: 'NanumSquare';
@@ -20,8 +28,6 @@ body {
   overflow-x: hidden;
   background-color: #fff;
 }
-/* .cursor {position: absolute; width: 10px; height: 10px; background: #f9f9f9; border-radius: 50%; z-index: 1000; user-select: none; pointer-events: none; transform: scale(1); transition: transform 0.3s ease-in-out;}
-button, a {cursor:url('/images/icon/camera_on.png') 10 10, auto;} */
 textarea, input, *::placeholder {
   font-family: 'NanumSquare';
   outline: none;
