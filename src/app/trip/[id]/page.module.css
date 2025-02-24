@@ -46,6 +46,8 @@
     font-weight: bold;
     font-size: 1.2rem;
     margin: 15px 0 30px;
+    word-break: keep-all;
+    line-height: 1.4;
 }
 .festivites_cont .txt_wrap div > .text {
     display: flex;
