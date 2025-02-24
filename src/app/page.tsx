@@ -32,11 +32,13 @@ export default async function Home() {
     .from("board")
     .select("*")
     .eq("type", "event")
+    .order('id', { ascending: false })
     .limit(3);
   const { data: noticePosts, error: noticeError } = await supabase
     .from("board")
     .select("*")
     .eq("type", "notice")
+    .order('id', { ascending: false })
     .limit(3);
 
   if (eventError || noticeError) {

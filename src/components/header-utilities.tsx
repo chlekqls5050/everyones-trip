@@ -11,7 +11,7 @@ interface HeaderUtilitiesProps {
 }
 
 
-export default function headerUtilities({toggleSearch}:HeaderUtilitiesProps) {
+export default function HeaderUtilities({toggleSearch}:HeaderUtilitiesProps) {
   const searchBarRef = useRef<HTMLDivElement | null>(null);
   const searchInputRef = useRef<HTMLInputElement | null>(null);
   const [isHidden, setIsHidden] = useState(false);

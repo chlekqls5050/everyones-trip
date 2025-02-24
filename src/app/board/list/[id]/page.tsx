@@ -20,19 +20,18 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
                 boardCategory = 'event';
             };
 
-            const { count, error: countError } = await supabase.from('board').select('*', { count: 'exact' }).eq('type', boardCategory);
-            
+            const { count, error: countError} = await supabase.from('board').select('*', { count: 'exact' }).eq('type', boardCategory).order('id', { ascending: false });
+
             if (countError) {
                 console.error(countError);
             } else {
                 setTotalPosts(count);
             }
 
-            // 페이지네이션 처리
             const { data, error } = await supabase
                 .from('board')
                 .select('*')
-                .eq('type', boardCategory)
+                .eq('type', boardCategory).order('id', { ascending: false })
                 .range((currentPage - 1) * postsPerPage, currentPage * postsPerPage - 1);
             
             if (error) {
@@ -40,6 +39,8 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
             } else {
                 setPosts(data);
             }
+
+            console.log(data)
         };
 
         fetchPosts();
