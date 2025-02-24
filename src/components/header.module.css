@@ -5,10 +5,6 @@
     width: 100%;
     height: 80px;
     z-index: 999;
-    /* box-shadow: 10px 10px 10px rgba(180,180,180,.15);
-    background-color: #fff; 
-    backdrop-filter: saturate(180%) blur(20px);
-    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.01), rgba(0, 0, 0, .01));*/
     transition: all .2s;
 }
 .common_header.fix {

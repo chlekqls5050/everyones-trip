@@ -6,7 +6,12 @@ import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
 // import Link from "next/link";
 
-export default function SearchBar() {
+interface HeaderUtilitiesProps {
+  toggleSearch: (isOpen: boolean) => void;
+}
+
+
+export default function headerUtilities({toggleSearch}:HeaderUtilitiesProps) {
   const searchBarRef = useRef<HTMLDivElement | null>(null);
   const searchInputRef = useRef<HTMLInputElement | null>(null);
   const [isHidden, setIsHidden] = useState(false);
@@ -24,6 +29,7 @@ export default function SearchBar() {
       searchBarRef.current.style.display = isHidden ? "none" : "block";
       searchInputRef.current.focus();
       setIsHidden(!isHidden);
+      toggleSearch(!isHidden);
     }
   };
 
@@ -31,6 +37,7 @@ export default function SearchBar() {
     if (searchBarRef.current) {
       searchBarRef.current.style.display = isHidden ? "none" : "block";
       setIsHidden(!isHidden);
+      toggleSearch(!isHidden);
     }
   };
 

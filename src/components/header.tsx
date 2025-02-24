@@ -7,6 +7,11 @@ import { Suspense, useEffect, useState } from "react";
 
 export default function Header() {
     const [isFixed, setIsFixed] = useState(false);
+    const [isSearchOpen, setIsSearchOpen] = useState(false);
+
+    const toggleSearch = (isOpen: boolean) => {
+        setIsSearchOpen(isOpen);
+    };
 
     useEffect(() => {
         const handleScroll = () => {
@@ -22,7 +27,7 @@ export default function Header() {
     }, []);
 
     return (
-        <header className={`${style.common_header} ${isFixed ? style.fix : ""}`}>
+        <header className={`${style.common_header} ${(isSearchOpen || isFixed) && style.fix}`}>
             <div className="w-1200 h-100">
                 <div className={style.header_wrap}>
                     <Link href={'/'} className={style.hd_logo_wrap}>
@@ -48,7 +53,7 @@ export default function Header() {
                             </ul>
                         </div>
                         <Suspense fallback={<div>Loading...</div>}>
-                            <HeaderUtillties />
+                            <HeaderUtillties toggleSearch={toggleSearch} />
                         </Suspense>
                     </div>
                 </div>

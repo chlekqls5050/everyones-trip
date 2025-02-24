@@ -16,10 +16,10 @@ html {
 }
 
 body {
-  cursor: url('/images/icon/icon_cursor.png') 10 10, auto;
+  cursor: url('/images/icon/icon_cursor.png') 0 0, auto;
 }
 button, a, button {
-  cursor:url('/images/icon/icon_cursor_on.png') 10 10, pointer;
+  cursor:url('/images/icon/icon_cursor_on.png') 0 0, pointer;
 }
 html,
 body {
