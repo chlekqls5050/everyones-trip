@@ -9,8 +9,7 @@ import MainBoardItem from "@/components/main-board-item";
 
 async function getFestivitiesData() {
   const response = await fetch(
-    `https://apis.data.go.kr/B551011/KorService1/searchFestival1?numOfRows=4&MobileOS=ETC&MobileApp=festivites&_type=json&arrange=Q&eventStartDate=20250115&serviceKey=${process.env.NEXT_PUBLIC_API_KEY}`,
-    { cache: "force-cache" } // { next: { revalidate: 86400 } }
+    `https://apis.data.go.kr/B551011/KorService1/searchFestival1?numOfRows=4&MobileOS=ETC&MobileApp=festivites&_type=json&arrange=Q&eventStartDate=20250115&serviceKey=${process.env.NEXT_PUBLIC_API_KEY}`, { next: { revalidate: 3600 }}
   );
   const result = await response.json();
   return result.response.body.items.item;
@@ -18,8 +17,8 @@ async function getFestivitiesData() {
 
 async function getLodgmentData() {
   const response = await fetch(
-    `https://apis.data.go.kr/B551011/KorService1/searchStay1?numOfRows=7&MobileOS=ETC&MobileApp=lodgment&_type=json&arrange=R&serviceKey=${process.env.NEXT_PUBLIC_API_KEY}`,
-    { cache: "force-cache" }
+    `https://apis.data.go.kr/B551011/KorService1/searchStay1?numOfRows=7&MobileOS=ETC&MobileApp=lodgment&_type=json&arrange=R&serviceKey=${process.env.NEXT_PUBLIC_API_KEY}`, { next: { revalidate: 3600 } }
+    
   );
   const result = await response.json();
   return result.response.body.items.item;
