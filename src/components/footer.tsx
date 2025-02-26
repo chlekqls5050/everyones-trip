@@ -63,13 +63,8 @@ export default function Footer(){
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href={'https://www.instagram.com/'} target='_blank'>
-                                        <Image src={'/images/icon/icon_instagram.png'} alt={'instagram'} fill />
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link href={'https://www.facebook.com/'} target='_blank'>
-                                        <Image src={'/images/icon/icon_facebook.png'} alt={'facebook'} fill />
+                                    <Link href={'https://strong-breadfruit-a4a.notion.site/1a400fb6a084803b94dad0980eca2805'} target='_blank'>
+                                        <Image src={'/images/icon/icon_notion.png'} alt={'notion'} fill />
                                     </Link>
                                 </li>
                             </ul>
@@ -82,11 +77,6 @@ export default function Footer(){
                     </div>
                 </div>
             </footer>
-            {/* <div className={style.ft_fix_wr}>
-                <button type="button" className={style.top_btn}>
-                    <Image src="/images/icon/icon_top_btn.png" width={15} height={25} alt="top button" />
-                </button>
-            </div> */}
         </>
     )
 }
