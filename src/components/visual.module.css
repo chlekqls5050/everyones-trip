@@ -262,6 +262,11 @@
   .visual_txt_box .title {
     line-height: 1.4;
   }
+
+  .flutter_wrap .flutter_div span {
+    width: 10px;
+    height: 14px;
+  }
 }
 @media (max-width: 320px) {
   .visual_wrap {

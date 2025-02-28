@@ -6,7 +6,6 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-// ScrollTrigger 플러그인 등록
 gsap.registerPlugin(ScrollTrigger);
 export default function MainBanner () {
     const boxRef = useRef<HTMLDivElement>(null);

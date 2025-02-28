@@ -6,6 +6,7 @@ import style from "./page.module.css";
 import Link from "next/link";
 import MainBanner from "@/components/main-banner";
 import MainBoardItem from "@/components/main-board-item";
+import MainBannerShort from "@/components/main-banner-short";
 
 async function getFestivitiesData() {
   const response = await fetch(
@@ -52,6 +53,7 @@ export default async function Home() {
         <FestivitiesSection items={festivitiesItems} />
         <MainBanner />
         <LodgmentSection items={lodgmentItems} />
+        <MainBannerShort />
         <div className={style.main_board_wrap}>
           <div className="w-1200">
             <div className={style.board_cont_wrap}>

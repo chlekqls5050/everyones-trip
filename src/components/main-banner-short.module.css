@@ -1,0 +1,96 @@
+.main_banner_wrap {
+    position: relative;
+    background: url('/images/banner_short_bg.png') no-repeat center #f3f3f3;
+    background-size: contain;
+    padding: 60px 0;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    margin-bottom: 150px;
+    text-align: center;
+}
+.banner_txt_wrap {
+    max-width: 1000px;
+    width: 90%;
+    margin:0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--black-color);
+}
+.banner_txt_wrap .text {
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin: 0;
+}
+.banner_txt_wrap .title {
+    font-size: 1.4rem;
+    font-weight: 900;
+    display: inline-block;
+    margin: 0;
+}
+.banner_txt_wrap .title span {
+    font-size: 2rem;
+}
+
+@media (max-width: 900px) {
+    .main_banner_wrap {
+        background-position: right center;
+    }
+    .banner_txt_wrap {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        width: 80%;
+        line-height: 1.4;
+    }
+}
+
+@media (max-width: 768px) {
+    .main_banner_wrap {
+        background-position: right -15% center;
+        padding: 50px 0;
+        margin-bottom: 120px;
+    }
+    .banner_txt_wrap {
+        width: 90%;
+    }
+}
+
+@media (max-width: 570px) {
+    .main_banner_wrap {
+        background-position: right -20% center;
+        padding: 40px 0;
+    }
+    .banner_txt_wrap .title,
+    .banner_txt_wrap .text {
+        font-size: 1.2rem;
+    }
+    .banner_txt_wrap .title span {
+        font-size: 1.6rem;
+    }
+}
+@media (max-width: 480px) {
+    .main_banner_wrap {
+        padding: 30px 0 170px;
+        background-size: 70%;
+        background-position: center bottom;
+        margin-bottom: 100px;
+    }
+    .banner_txt_wrap .title,
+    .banner_txt_wrap .text {
+        width: 100%;
+    }
+}
+
+@media (max-width: 375px) {
+    .main_banner_wrap {
+        background-size: 80%;
+        padding: 30px 0 140px;
+    }
+}
+@media (max-width: 320px) {
+    .main_banner_wrap {
+        padding: 20px 0 120px;
+        margin-bottom: 80px;
+    }
+}
