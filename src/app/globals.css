@@ -30,6 +30,8 @@ body {
 textarea, input, *::placeholder {
   font-family: 'NanumSquare';
   outline: none;
+  touch-action: manipulation;
+  appearance: none;
 }
 li {
   list-style: none;
