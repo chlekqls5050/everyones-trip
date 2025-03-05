@@ -168,8 +168,8 @@
     .option_btn_wrap > button {
         font-size: .8rem;
         padding: 10px 15px;
-        border-color: #bbb;
-        color: #bbb;
+        /* border-color: #bbb;
+        color: #bbb; */
     }
     .creation_btn_wrap > a > span {
         font-size: .8rem;
