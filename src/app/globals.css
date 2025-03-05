@@ -14,7 +14,6 @@
 html {
     font-size: 20px;
 }
-
 body {
   cursor: url('/images/icon/icon_cursor.png') 0 0, auto;
 }
@@ -52,6 +51,12 @@ button, input[type=button], input[type=submit], input[type=reset] {
 main {
     margin-top: 80px;
     min-height: calc(100vh - 80px);
+}
+.hidden768 {
+  display: block;
+}
+.visible768 {
+  display: none;
 }
 .inner_box {
   position: relative;
@@ -100,6 +105,13 @@ main {
   }
   .visual_swiper .swiper-pagination-fraction {
     bottom: -50px;
+  }
+
+  .hidden768 {
+    display: none;
+  }
+  .visible768 {
+    display: block;
   }
 }
 @media (max-width: 600px) {

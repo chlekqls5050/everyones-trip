@@ -47,7 +47,7 @@ export default function KakaoMap({mapx, mapy, tel, addr1, addr2}:KakaoMapProps) 
                 <span>주소</span>
               </p>
               <p className={style.text}>
-                {addr1} <br />
+                {addr1} <br className='hidden768' />
                 {addr2}
               </p>
             </li>)}

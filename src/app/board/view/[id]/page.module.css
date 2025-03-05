@@ -19,6 +19,7 @@
 .creation_title_wrap > h2 {
     margin: 15px 0 0;
     font-size: 1.6rem;
+    word-break: keep-all;
 }
 .creation_info_wrap {
     display: flex;
@@ -166,6 +167,7 @@
     }
     .option_btn_wrap > button {
         font-size: .8rem;
+        padding: 10px 15px;
     }
     .creation_btn_wrap > a > span {
         font-size: .8rem;
@@ -210,15 +212,19 @@
     }
     .option_btn_wrap > button {
         font-size: .75rem;
-        padding: 10px 20px;
+        padding: 8px 10px 7px;
     }
     .password_input_wrap input {
         font-size: .75rem;
+        padding: 8px 5px;
     }
     .creation_btn_wrap > a {
         padding: 10px 40px;
     }
     .creation_hd_wrap {
         padding-bottom: 15px;
+    }
+    .creation_title_wrap > h2 {
+        font-size: 1.2rem;
     }
 }

@@ -143,6 +143,7 @@
 .directions_wrap > .directions_map_wrap {
     flex: 1;
     height: 400px;
+    border: 1px solid #ccc;
 }
 .directions_wrap > .directions_txt_wrap {
     width: 30%;
